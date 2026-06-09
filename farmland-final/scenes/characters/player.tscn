@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2f14nwu5rjcs"]
 
 [ext_resource type="Texture2D" uid="uid://cqu3ryy6sb05b" path="res://assets/game/Characters/Basic Charakter Spritesheet.png" id="1_7uws0"]
+[ext_resource type="Script" uid="uid://ca7o2chi8p25h" path="res://scripts/player.gd" id="1_t61fv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t61fv"]
 atlas = ExtResource("1_7uws0")
@@ -93,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_back",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,7 +105,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_front",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,7 +116,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,14 +127,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 3.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=408169181]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uws0"]
+radius = 13.0
+height = 42.0
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1843793421]
+position = Vector2(-5, -9)
+script = ExtResource("1_t61fv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269233876]
 position = Vector2(34, 30.999998)
 scale = Vector2(2.4166667, 2.2916672)
 sprite_frames = SubResource("SpriteFrames_hv5x3")
-animation = &"idle_front"
+animation = &"walk_front"
 autoplay = "idle_front"
+frame_progress = 0.5873594
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498193486]
+position = Vector2(34, 28)
+shape = SubResource("CapsuleShape2D_7uws0")
