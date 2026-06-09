@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cqu3ryy6sb05b" path="res://assets/game/Characters/Basic Charakter Spritesheet.png" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://ca7o2chi8p25h" path="res://scripts/player.gd" id="1_t61fv"]
+[ext_resource type="Script" uid="uid://xt5fwggt3ge4" path="res://scripts/node_state_machine.gd" id="3_hss88"]
+[ext_resource type="Script" uid="uid://cpum8oww0v7r1" path="res://scripts/idle_state.gd" id="4_qd3e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t61fv"]
 atlas = ExtResource("1_7uws0")
@@ -35,19 +37,19 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("1_7uws0")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3xnwo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yewv4"]
 atlas = ExtResource("1_7uws0")
 region = Rect2(96, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_djydg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_76oj4"]
 atlas = ExtResource("1_7uws0")
 region = Rect2(144, 96, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsn6e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyp2m"]
 atlas = ExtResource("1_7uws0")
 region = Rect2(96, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_blysn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_atpat"]
 atlas = ExtResource("1_7uws0")
 region = Rect2(144, 144, 48, 48)
 
@@ -109,10 +111,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3xnwo")
+"texture": SubResource("AtlasTexture_yewv4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_djydg")
+"texture": SubResource("AtlasTexture_76oj4")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -120,10 +122,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bsn6e")
+"texture": SubResource("AtlasTexture_dyp2m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_blysn")
+"texture": SubResource("AtlasTexture_atpat")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -142,10 +144,18 @@ script = ExtResource("1_t61fv")
 position = Vector2(34, 30.999998)
 scale = Vector2(2.4166667, 2.2916672)
 sprite_frames = SubResource("SpriteFrames_hv5x3")
-animation = &"walk_front"
+animation = &"idle_front"
 autoplay = "idle_front"
-frame_progress = 0.5873594
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498193486]
-position = Vector2(34, 28)
+position = Vector2(33, 27)
 shape = SubResource("CapsuleShape2D_7uws0")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1898424470 node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_hss88")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1342456457 node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("4_qd3e3")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
