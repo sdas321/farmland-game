@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_boundaries_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		area.global_position= spawn_point.global_position
-		get_tree().reload_current_scene()
+func _on_boundaries_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.global_position= spawn_point.global_position
+		get_tree().reload_current_scene() 

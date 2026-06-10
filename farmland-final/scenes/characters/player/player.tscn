@@ -136,7 +136,7 @@ animations = [{
 radius = 9.0
 height = 24.0
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1843793421]
+[node name="Node2D" type="CharacterBody2D" unique_id=1843793421 groups=["player"]]
 position = Vector2(-5, -9)
 script = ExtResource("1_t61fv")
 
