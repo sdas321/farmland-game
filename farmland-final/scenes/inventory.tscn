@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://80tlci14exu8"]
+
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_qw0r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj2ta"]
+atlas = ExtResource("1_qw0r6")
+region = Rect2(201, 57, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ty45s"]
+texture = SubResource("AtlasTexture_hj2ta")
+texture_margin_left = 7.00874
+texture_margin_top = 7.049488
+texture_margin_right = 7.1309853
+texture_margin_bottom = 7.1309853
+region_rect = Rect2(0, 0, 30, 30)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pohso"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tt2m"]
+atlas = SubResource("CompressedTexture2D_pohso")
+region = Rect2(107, 155, 26, 26)
+
+[node name="Canvas layer" type="CanvasLayer" unique_id=1494850838]
+
+[node name="Inventory" type="PanelContainer" parent="." unique_id=654995762]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -168.00012
+offset_right = -159.86023
+offset_bottom = -127.8197
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4.16, 4.08)
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_ty45s")
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory" unique_id=832326907]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/MarginContainer" unique_id=1348018501]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Seed1" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=1322207190]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+size_flags_vertical = 8
+texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="Seed2" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=399966117]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="itemslot" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=2077087346]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="itemslot2" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=1905558005]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="itemslot3" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=1248174642]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="itemslot4" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=1223211868]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5tt2m")
