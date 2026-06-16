@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cqu3ryy6sb05b" path="res://assets/game/Characters/Basic Charakter Spritesheet.png" id="1_7uws0"]
 [ext_resource type="Script" uid="uid://ca7o2chi8p25h" path="res://scripts/player.gd" id="1_t61fv"]
-[ext_resource type="Script" uid="uid://xt5fwggt3ge4" path="res://scripts/node_state_machine.gd" id="3_hss88"]
-[ext_resource type="Script" uid="uid://cpum8oww0v7r1" path="res://scripts/idle_state.gd" id="4_qd3e3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t61fv"]
 atlas = ExtResource("1_7uws0")
@@ -136,26 +134,20 @@ animations = [{
 radius = 9.0
 height = 24.0
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1843793421 groups=["player"]]
+[node name="Node2D" type="CharacterBody2D" unique_id=1843793421 node_paths=PackedStringArray("animation") groups=["player"]]
 position = Vector2(-5, -9)
 script = ExtResource("1_t61fv")
+animation = NodePath("sprite")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269233876]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=269233876]
+unique_name_in_owner = true
 position = Vector2(5.999998, 6.4999943)
 scale = Vector2(1.25, 1.2708336)
 sprite_frames = SubResource("SpriteFrames_hv5x3")
-animation = &"idle_front"
-autoplay = "idle_front"
+animation = &"walk_front"
+autoplay = "walk_front"
+frame_progress = 0.1543687
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498193486]
 position = Vector2(6, 5)
 shape = SubResource("CapsuleShape2D_7uws0")
-
-[node name="StateMachine" type="Node" parent="." unique_id=1898424470 node_paths=PackedStringArray("initial_node_state")]
-script = ExtResource("3_hss88")
-initial_node_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1342456457 node_paths=PackedStringArray("player", "animated_sprite_2d")]
-script = ExtResource("4_qd3e3")
-player = NodePath("../..")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")

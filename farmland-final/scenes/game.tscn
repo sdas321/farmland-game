@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://6yfmwsb420q8" path="res://assets/game/Objects/basic_grass_biom_things.png" id="7_trtic"]
 [ext_resource type="PackedScene" uid="uid://b2f14nwu5rjcs" path="res://scenes/characters/player/player.tscn" id="8_ir15t"]
 [ext_resource type="PackedScene" uid="uid://80tlci14exu8" path="res://scenes/inventory.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ce75eqj3jf54o" path="res://scenes/time.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
 texture = ExtResource("1_gee14")
@@ -762,9 +763,15 @@ shape = SubResource("RectangleShape2D_trtic")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1040544378]
 position = Vector2(520, 337)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1322793308]
+[node name="INVENTORY" type="CanvasLayer" parent="." unique_id=1322793308]
 follow_viewport_enabled = true
 
-[node name="Inventory" parent="CanvasLayer" unique_id=1011937050 instance=ExtResource("10_vtaks")]
+[node name="Inventory" parent="INVENTORY" unique_id=1011937050 instance=ExtResource("10_vtaks")]
+
+[node name="Clock" type="CanvasLayer" parent="." unique_id=1900467515]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.001
+
+[node name="CanvasLayer" parent="Clock" unique_id=674275996 instance=ExtResource("11_kvpfn")]
 
 [connection signal="body_entered" from="boundaries" to="." method="_on_boundaries_body_entered"]

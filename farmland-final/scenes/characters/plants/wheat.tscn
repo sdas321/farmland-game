@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c11pjswr17nly"]
+
+[ext_resource type="Texture2D" uid="uid://uxsrou8cq3hc" path="res://assets/game/Objects/basic_plants.png" id="1_n1xnp"]
+
+[node name="wheat" type="Node2D" unique_id=460360192]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1639316074]
+texture = ExtResource("1_n1xnp")
+hframes = 6
+vframes = 2
+frame = 1

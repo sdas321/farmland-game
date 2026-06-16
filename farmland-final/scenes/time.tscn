@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ce75eqj3jf54o"]
+
+[ext_resource type="Texture2D" uid="uid://bxcmg64sfn6uu" path="res://assets/UI elements/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_hxfg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoj08"]
+atlas = ExtResource("1_hxfg6")
+region = Rect2(107, 155, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4m821"]
+texture = SubResource("AtlasTexture_uoj08")
+texture_margin_left = 3.059308
+texture_margin_top = 4.4989824
+texture_margin_right = 3.35924
+texture_margin_bottom = 2.939335
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sts5m"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cvn0"]
+atlas = SubResource("CompressedTexture2D_sts5m")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4cv0"]
+texture = SubResource("AtlasTexture_5cvn0")
+texture_margin_left = 4.1497264
+texture_margin_top = 4.100029
+texture_margin_right = 4.0503316
+texture_margin_bottom = 4.1248775
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gt3cs"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-517c5c26fc67d4e80f3d13a2ca9bfea0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxfg6"]
+atlas = SubResource("CompressedTexture2D_gt3cs")
+region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uoj08"]
+texture = SubResource("AtlasTexture_hxfg6")
+texture_margin_left = 3.2644129
+texture_margin_top = 4.115999
+texture_margin_right = 3.1934476
+texture_margin_bottom = 4.0450335
+region_rect = Rect2(0, -0.026626587, 90, 25.026627)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1402376466]
+
+[node name="Background" type="PanelContainer" parent="." unique_id=682083520]
+offset_right = 404.0
+offset_bottom = 151.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4m821")
+
+[node name="time" type="PanelContainer" parent="." unique_id=1354428538]
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 379.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a4cv0")
+
+[node name="MarginContainer" type="MarginContainer" parent="time" unique_id=1903111355]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="time/MarginContainer" unique_id=1079432835]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 39
+text = "12:00 am"
+
+[node name="day_night" type="PanelContainer" parent="." unique_id=955843934]
+offset_left = 99.0
+offset_top = 81.0
+offset_right = 309.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_uoj08")
+
+[node name="MarginContainer" type="MarginContainer" parent="day_night" unique_id=190756132]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="day_night/MarginContainer" unique_id=1496077180]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "Day 1"

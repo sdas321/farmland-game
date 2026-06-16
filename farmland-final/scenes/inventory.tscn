@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://80tlci14exu8"]
 
-[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_qw0r6"]
+[ext_resource type="Texture2D" uid="uid://uxsrou8cq3hc" path="res://assets/game/Objects/basic_plants.png" id="1_qw0r6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gg8by"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hj2ta"]
-atlas = ExtResource("1_qw0r6")
+atlas = SubResource("CompressedTexture2D_gg8by")
 region = Rect2(201, 57, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ty45s"]
@@ -17,9 +20,21 @@ region_rect = Rect2(0, 0, 30, 30)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pohso"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw0r6"]
+atlas = SubResource("CompressedTexture2D_pohso")
+region = Rect2(107, 155, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty45s"]
+atlas = ExtResource("1_qw0r6")
+region = Rect2(2, 2, 12, 13)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tt2m"]
 atlas = SubResource("CompressedTexture2D_pohso")
 region = Rect2(107, 155, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53g1v"]
+atlas = ExtResource("1_qw0r6")
+region = Rect2(2, 18, 12, 13)
 
 [node name="Canvas layer" type="CanvasLayer" unique_id=1494850838]
 
@@ -52,12 +67,28 @@ alignment = 1
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_vertical = 8
-texture_normal = SubResource("AtlasTexture_5tt2m")
+texture_normal = SubResource("AtlasTexture_qw0r6")
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/MarginContainer/HBoxContainer/Seed1" unique_id=748715865]
+layout_mode = 0
+offset_left = 3.5681798
+offset_top = 4.225039
+offset_right = 20.875874
+offset_bottom = 21.872103
+texture = SubResource("AtlasTexture_ty45s")
 
 [node name="Seed2" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=399966117]
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="TextureRect" type="TextureRect" parent="Inventory/MarginContainer/HBoxContainer/Seed2" unique_id=1610987614]
+layout_mode = 0
+offset_left = 4.337414
+offset_top = 3.734843
+offset_right = 22.125881
+offset_bottom = 21.87211
+texture = SubResource("AtlasTexture_53g1v")
 
 [node name="itemslot" type="TextureButton" parent="Inventory/MarginContainer/HBoxContainer" unique_id=2077087346]
 custom_minimum_size = Vector2(26, 26)
