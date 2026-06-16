@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://ce75eqj3jf54o"]
 
-[ext_resource type="Texture2D" uid="uid://bxcmg64sfn6uu" path="res://assets/UI elements/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_hxfg6"]
+[ext_resource type="Script" uid="uid://cfep7kxs6m833" path="res://scripts/time_cycle.gd" id="1_hxfg6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hxfg6"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-517c5c26fc67d4e80f3d13a2ca9bfea0.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uoj08"]
-atlas = ExtResource("1_hxfg6")
+atlas = SubResource("CompressedTexture2D_hxfg6")
 region = Rect2(107, 155, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4m821"]
@@ -42,7 +45,8 @@ texture_margin_right = 3.1934476
 texture_margin_bottom = 4.0450335
 region_rect = Rect2(0, -0.026626587, 90, 25.026627)
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1402376466]
+[node name="clocks" type="CanvasLayer" unique_id=1576263515]
+script = ExtResource("1_hxfg6")
 
 [node name="Background" type="PanelContainer" parent="." unique_id=682083520]
 offset_right = 404.0
@@ -59,11 +63,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_a4cv0")
 [node name="MarginContainer" type="MarginContainer" parent="time" unique_id=1903111355]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="time/MarginContainer" unique_id=1079432835]
+[node name="time_label" type="Label" parent="time/MarginContainer" unique_id=1079432835]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 39
-text = "12:00 am"
+text = "00:00"
 
 [node name="day_night" type="PanelContainer" parent="." unique_id=955843934]
 offset_left = 99.0
@@ -75,8 +79,8 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_uoj08")
 [node name="MarginContainer" type="MarginContainer" parent="day_night" unique_id=190756132]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="day_night/MarginContainer" unique_id=1496077180]
+[node name="day_label" type="Label" parent="day_night/MarginContainer" unique_id=1496077180]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
-text = "Day 1"
+text = "Day 0"

@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://dbnwv328e4g8b" path="res://scripts/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://ceunyb5gnkvkd" path="res://main_menu_final.png" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://b6i1wkit532l5" path="res://main.png" id="2_wu84c"]
-[ext_resource type="FontFile" uid="uid://dotedctvxnqr5" path="res://assets/UI elements/fonts/digistrip.ttf" id="3_8ln24"]
-[ext_resource type="FontFile" uid="uid://certo78a0ikjv" path="res://assets/UI elements/fonts/Kid Games.ttf" id="4_rtw2f"]
 
 [sub_resource type="Theme" id="Theme_wu84c"]
 
@@ -51,14 +49,13 @@ texture_hover = ExtResource("2_wu84c")
 
 [node name="play" type="Label" parent="VBoxContainer/TextureButton" unique_id=2088143507]
 layout_mode = 0
-offset_left = 304.5112
-offset_top = 121.39363
-offset_right = 1052.5111
-offset_bottom = 393.39362
+offset_left = 337.43134
+offset_top = 65.89917
+offset_right = 1085.4312
+offset_bottom = 407.89917
 scale = Vector2(0.9409822, 1.3881027)
 theme_override_colors/font_color = Color(1, 1, 0.28627452, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 250
 text = "PLAY"
 
@@ -68,13 +65,12 @@ texture_normal = ExtResource("2_wu84c")
 
 [node name="How to play" type="Label" parent="VBoxContainer/TextureButton2" unique_id=1508073228]
 layout_mode = 0
-offset_left = 82.30031
-offset_top = 143.09735
-offset_right = 1584.3003
-offset_bottom = 692.09735
+offset_left = 123.45047
+offset_top = 111.881836
+offset_right = 1625.4504
+offset_bottom = 660.88184
 scale = Vector2(0.73200345, 1.3679423)
 theme_override_colors/font_color = Color(1, 1, 0.28627452, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 200
 text = "HOW TO PLAY
 "
@@ -85,26 +81,24 @@ texture_normal = ExtResource("2_wu84c")
 
 [node name="Quit" type="Label" parent="VBoxContainer/TextureButton3" unique_id=783642535]
 layout_mode = 0
-offset_left = 277.76355
-offset_top = 98.902054
-offset_right = 696.76355
-offset_bottom = 303.90204
+offset_left = 325.0863
+offset_top = 67.68654
+offset_right = 744.0863
+offset_bottom = 272.68652
 scale = Vector2(1.734575, 2.144653)
 theme_override_colors/font_color = Color(1, 1, 0.28627452, 1)
-theme_override_fonts/font = ExtResource("3_8ln24")
 theme_override_font_sizes/font_size = 150
 text = "QUIT"
 
 [node name="farmland" type="Label" parent="." unique_id=38142559]
 layout_mode = 0
-offset_left = 98.00001
-offset_top = 230.00002
-offset_right = 1193.0
-offset_bottom = 503.0
+offset_left = 218.0
+offset_top = 199.99998
+offset_right = 1004.30426
+offset_bottom = 470.1557
 scale = Vector2(1.2196296, 1.4063215)
 theme_override_colors/font_color = Color(0.36556062, 0.8446221, 0.40555194, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_rtw2f")
 theme_override_font_sizes/font_size = 140
 text = "FARMLAND"
 
