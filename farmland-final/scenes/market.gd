@@ -1,0 +1,61 @@
+extends Control
+
+@onready var object_container: HBoxContainer= %objects
+@onready var scroll_container: ScrollContainer= %ScrollContainer
+var targetScroll = 0
+var current_item_index: int = 0
+
+
+func _ready()-> void:
+	_set_selection()
+	
+func _set_selection():
+	await get_tree().create_timer(0.01).timeout
+	_select_deselect_highlight()
+
+func _on_previous_pressed() -> void:
+	if current_item_index > 0:
+		current_item_index -= 1
+	var scrollValue= targetScroll - _get_space_between()
+	_select_deselect_highlight()
+	await _tween_scroll(scrollValue)
+	
+
+func _on_next_pressed() -> void:
+	if current_item_index < object_container.get_child_count() - 1:
+		current_item_index += 1
+	var scrollValue= targetScroll + _get_space_between()
+	_select_deselect_highlight()
+	await _tween_scroll(scrollValue)
+	
+	
+func _get_space_between():
+	if object_container.get_child_count() < 1:
+		return 0
+	
+	var distanceSize= object_container.get_theme_constant("separation")
+	if object_container.get_child_count() < 2:
+		return 0
+	var objectSize= object_container.get_children()[0].size.x
+	return distanceSize + objectSize 
+	
+	
+func _select_deselect_highlight():
+	var children = object_container.get_children()
+	for i in range(children.size()):
+		var object = children[i]
+		if object is not TextureRect: continue
+		
+		if i == current_item_index:
+			object.modulate = Color(1.0, 1.0, 1.0, 1.0) 
+		else:
+			object.modulate = Color(0.0, 0.0, 0.0, 1.0)
+
+func _tween_scroll(scrollValue):
+	targetScroll= scrollValue
+	var tween= get_tree().create_tween()
+	tween.tween_property(scroll_container, "scroll_horizontal", scrollValue, 0.25)
+	await tween.finished
+	await get_tree().process_frame
+	
+	
