@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b3kktp7ey2w06"]
+
+[ext_resource type="Script" uid="uid://30og3blml7vq" path="res://scripts/crop.gd" id="1_kdi87"]
+[ext_resource type="Texture2D" uid="uid://uxsrou8cq3hc" path="res://assets/game/Objects/basic_plants.png" id="2_xjw3h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dbbp"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_221fb"]
+atlas = ExtResource("2_xjw3h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_248e2"]
+atlas = ExtResource("2_xjw3h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4c3k"]
+atlas = ExtResource("2_xjw3h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr3fb"]
+atlas = ExtResource("2_xjw3h")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgwx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_221fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_248e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4c3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr3fb")
+}],
+"loop": false,
+"name": &"wheat_grow",
+"speed": 0.1
+}]
+
+[node name="Area2D" type="Area2D" unique_id=681593308 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_kdi87")
+sprite = NodePath("AnimatedSprite2D")
+growth_time_seconds = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238373525]
+position = Vector2(31, 30)
+shape = SubResource("CircleShape2D_2dbbp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1892312500]
+position = Vector2(32, 24.000002)
+scale = Vector2(1.8125001, 1.75)
+sprite_frames = SubResource("SpriteFrames_fgwx1")
+animation = &"wheat_grow"
+autoplay = "wheat_grow"
+speed_scale = 1.07

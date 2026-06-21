@@ -3,7 +3,7 @@ var speed: float = 150.0
 var character_direction: Vector2
 @export var animation: AnimatedSprite2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	character_direction.x= Input.get_axis("ui_left","ui_right")
 	character_direction.y= Input.get_axis("ui_up","ui_down")
 	character_direction= character_direction.normalized()

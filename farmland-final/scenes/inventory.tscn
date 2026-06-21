@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://uxsrou8cq3hc" path="res://assets/game/Objects/basic_plants.png" id="1_qw0r6"]
 [ext_resource type="Script" uid="uid://rydcpf16d5d8" path="res://scripts/inventory.gd" id="1_ty45s"]
-[ext_resource type="Script" uid="uid://be7lekouhukk4" path="res://scripts/seed_1.gd" id="2_53g1v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gg8by"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
@@ -71,7 +70,6 @@ custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_vertical = 8
 texture_normal = SubResource("AtlasTexture_qw0r6")
-script = ExtResource("2_53g1v")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory/MarginContainer/HBoxContainer/Seed1" unique_id=748715865]
 layout_mode = 0
