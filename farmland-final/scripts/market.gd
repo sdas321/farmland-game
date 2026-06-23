@@ -15,28 +15,39 @@ func _set_selection():
 
 func _on_previous_pressed() -> void:
 	if current_item_index > 0:
+		var scrollValue = targetScroll - _get_scroll_distance_to_next(-1)
 		current_item_index -= 1
 	var scrollValue= targetScroll - _get_space_between()
 	_select_deselect_highlight()
 	await _tween_scroll(scrollValue)
 	
-
+func _get_scroll_distance_to_next(direction: int) -> float:
+	var separation = object_container.get_theme_constant("separation")
+	var children = object_container.get_children()
+	var current_obj = children[current_item_index]
+	var current_half_width = current_obj.size.x / 2.0
+	var next_item_index = current_item_index + direction
+	var next_obj = children[next_item_index]
+	var next_half_width = next_obj.size.x / 2.0
+	return current_half_width + separation + next_half_width
+	
 func _on_next_pressed() -> void:
 	if current_item_index < object_container.get_child_count() - 1:
+		var scrollValue = targetScroll + _get_scroll_distance_to_next(1)
 		current_item_index += 1
 	var scrollValue= targetScroll + _get_space_between()
 	_select_deselect_highlight()
 	await _tween_scroll(scrollValue)
 	
 	
-func _get_space_between():
+func _get_space_between() -> int:
 	if object_container.get_child_count() < 1:
 		return 0
 	
-	var distanceSize= object_container.get_theme_constant("separation")
+	var distanceSize = object_container.get_theme_constant("separation")
 	if object_container.get_child_count() < 2:
 		return 0
-	var objectSize= object_container.get_children()[0].size.x
+	var objectSize = object_container.get_children()[current_item_index].size.x
 	return distanceSize + objectSize 
 	
 	
@@ -48,9 +59,7 @@ func _select_deselect_highlight():
 		
 		if i == current_item_index:
 			object.modulate = Color(1.0, 1.0, 1.0, 1.0) 
-		else:
-			object.modulate = Color(0.0, 0.0, 0.0, 1.0)
-
+		
 func _tween_scroll(scrollValue):
 	targetScroll= scrollValue
 	var tween= get_tree().create_tween()
@@ -58,4 +67,9 @@ func _tween_scroll(scrollValue):
 	await tween.finished
 	await get_tree().process_frame
 	
+	
+
+
+func _on_purchase_pressed() -> void:
+	pass
 	

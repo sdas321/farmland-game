@@ -10,7 +10,6 @@ var is_fully_grown: bool = false
 
 func _ready() -> void:
 	if sprite == null:
-		push_error("Missing AnimatedSprite2D assignment on node: " + name)
 		return
 		
 	sprite.animation_finished.connect(self._on_growth_finished)
@@ -31,13 +30,11 @@ func start_growing() -> void:
 func _on_growth_finished() -> void:
 	if sprite.animation == animation_name:
 		is_fully_grown = true
-		print(crop_name + " is fully grown and ready for pickup!")
 		
 func _on_body_entered(body: Node2D) -> void:
 	if is_fully_grown and "player" in body.name:
 		harvest_and_restart()
 
 func harvest_and_restart() -> void:
-	print("Auto-harvested " + crop_name + "! Gained ", coins_reward, " coins.")
 	Global.add_coins(coins_reward)
 	start_growing()
