@@ -1,3 +1,3 @@
 extends TextureRect
 @export var item_name: String = "clock"
-@export var item_cost: int = 25
+@export var item_cost: int = 150

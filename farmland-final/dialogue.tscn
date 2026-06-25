@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cgae2ibc3j78m"]
+
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_758ep"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="1_oi3j2"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="2_758ep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoxo3"]
+atlas = ExtResource("1_758ep")
+region = Rect2(163, 178, 90, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2h7b"]
+texture = SubResource("AtlasTexture_hoxo3")
+
+[node name="Control" type="CanvasLayer" unique_id=270227068]
+
+[node name="Control" type="Control" parent="." unique_id=1340823418]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1575066832]
+layout_mode = 1
+offset_left = 569.0
+offset_top = 1292.0
+offset_right = 1884.0
+offset_bottom = 1663.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2h7b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel" unique_id=1987784654]
+layout_mode = 0
+offset_right = 1310.0
+offset_bottom = 372.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer" unique_id=2046245585]
+layout_mode = 2
+
+[node name="DialogueLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer" unique_id=1781141615]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.5569365, 0.25542223, 4.813075e-07, 1)
+theme_override_font_sizes/normal_font_size = 46
+text = "
+
+        Hi! I'm Bob and i will guide you through this game!"
+script = ExtResource("1_oi3j2")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=372909147]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogueResponsesMenu" type="Container" parent="Control/MarginContainer" unique_id=442642984]
+layout_mode = 2
+script = ExtResource("2_758ep")
+metadata/_custom_type_script = "uid://bb52rsfwhkxbn"
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer" unique_id=937395685]
+layout_mode = 2

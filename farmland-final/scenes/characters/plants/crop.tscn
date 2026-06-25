@@ -45,7 +45,6 @@ animations = [{
 [node name="Area2D" type="Area2D" unique_id=681593308 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_kdi87")
 sprite = NodePath("AnimatedSprite2D")
-growth_time_seconds = 30.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238373525]
 position = Vector2(31, 30)
