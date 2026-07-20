@@ -103,3 +103,4 @@ theme_override_font_sizes/font_size = 140
 text = "FARMLAND"
 
 [connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]

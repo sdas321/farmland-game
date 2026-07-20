@@ -92,7 +92,7 @@ func _on_purchase_pressed() -> void:
 		Global.add_to_inventory(item_name)
 		print("Successfully purchased: ", item_name)
 	else:
-		print("Cannot purchase: This slot is a layout spacer (", active_node.name, ")")
+		print("error")
 
 
 
