@@ -1,40 +1,81 @@
 extends Area2D
 
 @export var sprite: AnimatedSprite2D
+@export var progress_bar: ProgressBar
 @export var crop_name: String = "Wheat"
-@export var growth_time_seconds: float = 10.0
 @export var coins_reward: int = 10
-@export var animation_name: String = "wheat_grow"
+@export var max_water: float = 100.0
+@export var water_speed: float = 50.0
 
+var current_water: float = 0.0
 var is_fully_grown: bool = false
+var is_mouse_hovering: bool = false
 
 func _ready() -> void:
 	if sprite == null:
 		return
-		
-	sprite.animation_finished.connect(self._on_growth_finished)
+
 	body_entered.connect(self._on_body_entered)
-	
-	start_growing()
+	mouse_entered.connect(self._on_mouse_entered)
+	mouse_exited.connect(self._on_mouse_exited)
 
-func start_growing() -> void:
+	if progress_bar:
+		progress_bar.max_value = max_water
+		progress_bar.value = 0
+		progress_bar.visible = true
+
+	reset_crop()
+
+func reset_crop() -> void:
 	is_fully_grown = false
-	sprite.frame = 0
-	var base_fps: float = sprite.sprite_frames.get_animation_speed(animation_name)
-	var total_frames: int = sprite.sprite_frames.get_frame_count(animation_name)
-	var target_fps: float = float(total_frames) / growth_time_seconds
+	current_water = 0.0
 	
-	sprite.speed_scale = target_fps / base_fps
-	sprite.play(animation_name)
+	if progress_bar:
+		progress_bar.value = 0
+		progress_bar.max_value = max_water
+		progress_bar.visible = true
 
-func _on_growth_finished() -> void:
-	if sprite.animation == animation_name:
+	if sprite:
+		sprite.stop()
+		sprite.frame = 0
+
+func _process(delta: float) -> void:
+	if is_fully_grown:
+		return
+
+	if is_mouse_hovering and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if Global.selected_item == "watering_can":
+			water_crop(delta)
+
+func water_crop(delta: float) -> void:
+	current_water += water_speed * delta
+	current_water = min(current_water, max_water)
+
+	if progress_bar:
+		progress_bar.value = current_water
+
+	var ratio: float = current_water / max_water
+
+	if ratio < 1.0:
+		if sprite:
+			sprite.frame = int(ratio * 4.0)
+	else:
+		if sprite:
+			sprite.frame = 3
 		is_fully_grown = true
-		
-func _on_body_entered(body: Node2D) -> void:
-	if is_fully_grown and "player" in body.name:
-		harvest_and_restart()
+		if progress_bar:
+			progress_bar.visible = false
 
-func harvest_and_restart() -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if is_fully_grown and "player" in body.name.to_lower():
+		collect_crop()
+
+func collect_crop() -> void:
 	Global.add_coins(coins_reward)
-	start_growing()
+	reset_crop()
+
+func _on_mouse_entered() -> void:
+	is_mouse_hovering = true
+
+func _on_mouse_exited() -> void:
+	is_mouse_hovering = false

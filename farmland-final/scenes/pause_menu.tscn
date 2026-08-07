@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c4n7vnwooalq8"]
+
+[ext_resource type="Script" uid="uid://0vksxdp5nots" path="res://scripts/pause_menu.gd" id="1_kukqi"]
+[ext_resource type="Texture2D" uid="uid://bvvqpqb8qnbna" path="res://extra/Screenshot 2026-07-21 at 1.45.50 PM.png" id="1_myx47"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_kukqi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
+texture = ExtResource("1_myx47")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l7mv"]
+atlas = ExtResource("2_kukqi")
+region = Rect2(259, 180, 90, 25)
+
+[node name="Pause_menu" type="Control" unique_id=577579894]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kukqi")
+
+[node name="Panel" type="Panel" parent="." unique_id=1288706947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5d2l8")
+
+[node name="TextureButton" type="TextureButton" parent="Panel" unique_id=1682886699]
+layout_mode = 1
+offset_left = 855.0
+offset_top = 670.0
+offset_right = 1489.0
+offset_bottom = 798.0
+texture_normal = SubResource("AtlasTexture_7l7mv")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/TextureButton" unique_id=1805708606]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 5.0
+offset_right = 410.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 82
+text = "PLAY"
+
+[node name="TextureButton2" type="TextureButton" parent="Panel" unique_id=1358389882]
+layout_mode = 1
+offset_left = 851.0
+offset_top = 891.0
+offset_right = 1485.0
+offset_bottom = 1019.0
+texture_normal = SubResource("AtlasTexture_7l7mv")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/TextureButton2" unique_id=1682334412]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 5.0
+offset_right = 410.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 82
+text = "QUIT "
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/TextureButton2" to="." method="_on_quit_button_pressed"]

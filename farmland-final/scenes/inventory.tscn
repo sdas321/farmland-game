@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://80tlci14exu8"]
 
 [ext_resource type="Script" uid="uid://rydcpf16d5d8" path="res://scripts/inventory.gd" id="1_ty45s"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_ty45s"]
+[ext_resource type="Script" uid="uid://b0jt0ddwpuful" path="res://scripts/watering_can.gd" id="3_53g1v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gg8by"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-77858df2952c29547fe7dd1f46488487.ctex"
@@ -28,6 +30,10 @@ region = Rect2(107, 155, 26, 26)
 atlas = SubResource("CompressedTexture2D_pohso")
 region = Rect2(107, 155, 26, 26)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyk2a"]
+atlas = ExtResource("2_ty45s")
+region = Rect2(678, 5, 20, 21)
+
 [node name="Canvas layer" type="CanvasLayer" unique_id=1494850838]
 
 [node name="Inventory" type="PanelContainer" parent="." unique_id=654995762]
@@ -36,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -350.0
-offset_top = -168.00012
-offset_right = -159.86023
-offset_bottom = -127.8197
+offset_left = -249.0
+offset_top = -168.0
+offset_right = -58.86023
+offset_bottom = -127.81958
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(4.16, 4.08)
@@ -86,3 +92,14 @@ texture_normal = SubResource("AtlasTexture_5tt2m")
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_5tt2m")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=2046936944]
+offset_left = 726.0
+offset_top = 1474.0
+offset_right = 931.8436
+offset_bottom = 1669.0
+texture_normal = SubResource("AtlasTexture_yyk2a")
+stretch_mode = 1
+script = ExtResource("3_53g1v")
+
+[connection signal="pressed" from="TextureButton" to="Inventory" method="_on_texture_button_pressed"]

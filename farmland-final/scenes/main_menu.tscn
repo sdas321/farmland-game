@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://u6qwrn7n4hj0"]
 
 [ext_resource type="Script" uid="uid://dbnwv328e4g8b" path="res://scripts/main_menu.gd" id="1_8ln24"]
-[ext_resource type="Texture2D" uid="uid://ceunyb5gnkvkd" path="res://main_menu_final.png" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://b6i1wkit532l5" path="res://main.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://ceunyb5gnkvkd" path="res://extra/main_menu_final.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b6i1wkit532l5" path="res://extra/main.png" id="2_wu84c"]
 
 [sub_resource type="Theme" id="Theme_wu84c"]
 
@@ -103,4 +103,5 @@ theme_override_font_sizes/font_size = 140
 text = "FARMLAND"
 
 [connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]

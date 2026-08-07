@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6i1wkit532l5"
-path="res://.godot/imported/main.png-14d2ca6fe2e10add1368183e47a806a1.ctex"
+uid="uid://cmfh0no4k7mlj"
+path="res://.godot/imported/purchase button.png-4688c02a80f1cb063abe7decbc63f7d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main.png"
-dest_files=["res://.godot/imported/main.png-14d2ca6fe2e10add1368183e47a806a1.ctex"]
+source_file="res://extra/purchase button.png"
+dest_files=["res://.godot/imported/purchase button.png-4688c02a80f1cb063abe7decbc63f7d5.ctex"]
 
 [params]
 

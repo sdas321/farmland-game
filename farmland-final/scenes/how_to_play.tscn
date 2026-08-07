@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://d2fgglubpno7u"]
+
+[ext_resource type="Texture2D" uid="uid://c5xslex5s5ox0" path="res://extra/Screenshot 2026-08-05 at 10.29.40 AM.png" id="1_d4i75"]
+[ext_resource type="Script" uid="uid://c0ang4ojbghb5" path="res://scripts/how_to_play.gd" id="1_e0xnd"]
+[ext_resource type="Texture2D" uid="uid://di4r3g6s0dgq8" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Setting menu.png" id="2_xkrkv"]
+[ext_resource type="Texture2D" uid="uid://bfoxj8jw7nr6m" path="res://assets/game/Characters/chicken_sprites.png" id="3_wi5qh"]
+[ext_resource type="Texture2D" uid="uid://82vtslxktxhj" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box big.png" id="4_e0xnd"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="6_m8x0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30apa"]
+atlas = ExtResource("2_xkrkv")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkrkv"]
+texture = SubResource("AtlasTexture_30apa")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8x0n"]
+atlas = ExtResource("3_wi5qh")
+region = Rect2(1, 3, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crhno"]
+atlas = ExtResource("4_e0xnd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqkvd"]
+atlas = ExtResource("6_m8x0n")
+region = Rect2(869, 102, 22, 22)
+
+[node name="Control" type="Control" unique_id=427425820]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e0xnd")
+
+[node name="background" type="Sprite2D" parent="." unique_id=989561486]
+position = Vector2(1186, 833.99994)
+scale = Vector2(8.613138, 9.175823)
+texture = ExtResource("1_d4i75")
+
+[node name="Panel" type="Panel" parent="." unique_id=137206488]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 146.0
+offset_right = 2187.0
+offset_bottom = 1524.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xkrkv")
+
+[node name="Chicken" type="Sprite2D" parent="." unique_id=1306211214]
+position = Vector2(416, 1233)
+scale = Vector2(17.749996, 16.291664)
+texture = SubResource("AtlasTexture_m8x0n")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1680635787]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 1137.0
+offset_right = 1386.0
+offset_bottom = 1357.0
+texture_normal = SubResource("AtlasTexture_crhno")
+stretch_mode = 0
+
+[node name="dialogue" type="Label" parent="TextureButton" unique_id=1291090142]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09200001
+anchor_top = -0.38300002
+anchor_right = 0.09200001
+anchor_bottom = -0.38300002
+offset_left = -13.612007
+offset_top = 163.26001
+offset_right = 713.388
+offset_bottom = 280.26
+theme_override_colors/font_color = Color(0.4392157, 0.23921569, 0.050980393, 1)
+theme_override_font_sizes/font_size = 40
+text = "Loren ipsum dolor sit amet bla bla"
+
+[node name="Title" type="Label" parent="." unique_id=1009428894]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 205.0
+offset_right = 1830.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0.4410396, 0.24336776, 0.045822926, 1)
+theme_override_font_sizes/font_size = 80
+text = "How to Play"
+
+[node name="Text" type="Label" parent="Title" unique_id=839042622]
+layout_mode = 0
+offset_left = -613.0
+offset_top = 164.0
+offset_right = 1107.0
+offset_bottom = 1065.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 51
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud 
+exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate
+ velit esse cillum dolore eu fugiat nulla 
+pariatur. Excepteur sint occaecat cupidatat non proident, 
+sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="Home" type="TextureButton" parent="." unique_id=1489782415]
+layout_mode = 0
+offset_left = 1934.0
+offset_top = 204.0
+offset_right = 2094.0
+offset_bottom = 364.0
+texture_normal = SubResource("AtlasTexture_xqkvd")
+stretch_mode = 0
+
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]

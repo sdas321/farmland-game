@@ -42,9 +42,16 @@ animations = [{
 "speed": 0.1
 }]
 
-[node name="Area2D" type="Area2D" unique_id=681593308 node_paths=PackedStringArray("sprite")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdi87"]
+bg_color = Color(0.93988645, 0.2335138, 0.29327348, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjw3h"]
+bg_color = Color(0.09292718, 0.61183035, 0.14217323, 1)
+
+[node name="Area2D" type="Area2D" unique_id=681593308 node_paths=PackedStringArray("sprite", "progress_bar")]
 script = ExtResource("1_kdi87")
 sprite = NodePath("AnimatedSprite2D")
+progress_bar = NodePath("ProgressBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238373525]
 position = Vector2(31, 30)
@@ -57,3 +64,17 @@ sprite_frames = SubResource("SpriteFrames_fgwx1")
 animation = &"wheat_grow"
 autoplay = "wheat_grow"
 speed_scale = 1.07
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1342351561]
+texture_filter = 1
+offset_left = 23.0
+offset_top = 7.0
+offset_right = 38.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_kdi87")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xjw3h")
+show_percentage = false
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

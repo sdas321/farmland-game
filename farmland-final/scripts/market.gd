@@ -90,9 +90,7 @@ func _on_purchase_pressed() -> void:
 		
 		Global.purchase(cost)
 		Global.add_to_inventory(item_name)
-		print("Successfully purchased: ", item_name)
-	else:
-		print("error")
+		
 
 
 

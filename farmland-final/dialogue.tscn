@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cgae2ibc3j78m"]
 
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_758ep"]
-[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="1_oi3j2"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="2_758ep"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoxo3"]
@@ -34,17 +33,6 @@ offset_bottom = 372.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer" unique_id=2046245585]
 layout_mode = 2
-
-[node name="DialogueLabel" type="RichTextLabel" parent="Control/Panel/MarginContainer" unique_id=1781141615]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.5569365, 0.25542223, 4.813075e-07, 1)
-theme_override_font_sizes/normal_font_size = 46
-text = "
-
-        Hi! I'm Bob and i will guide you through this game!"
-script = ExtResource("1_oi3j2")
-skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
-metadata/_custom_type_script = "uid://g32um0mltv5d"
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=372909147]
 layout_mode = 0
