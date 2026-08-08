@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://ds3yyajnprmmx"]
+[gd_scene format=3 uid="uid://dal421s31ykt1"]
 
-[ext_resource type="Script" uid="uid://bo7fb15k7s520" path="res://scripts/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://ce3ia7hrl51v8" path="res://scripts/balloon (2).gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://scenes/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://82vtslxktxhj" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box big.png" id="2_m0o5a"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://c80an3y1fdp8l" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box medium.png" id="5_i80d5"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="6_i80d5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -63,6 +66,15 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsek3"]
+texture = ExtResource("2_m0o5a")
+expand_margin_left = 108.0
+expand_margin_top = 36.0
+expand_margin_right = 24.0
+expand_margin_bottom = 36.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvj2v"]
+
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -99,6 +111,19 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8copa"]
+texture = ExtResource("5_i80d5")
+texture_margin_top = 9.888607
+texture_margin_bottom = 11.094535
+region_rect = Rect2(9.103736, 0, 113.5984, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsek3"]
+atlas = ExtResource("6_i80d5")
+region = Rect2(110, 158, 19, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc4cd"]
+texture = SubResource("AtlasTexture_hsek3")
+
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=1434168376]
 layer = 100
 script = ExtResource("1_36de5")
@@ -127,6 +152,7 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_hsek3")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer" unique_id=1030936092]
 layout_mode = 2
@@ -143,6 +169,8 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.22543648, 0.14392346, 0.009488785, 1)
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -152,7 +180,11 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxTexture_kvj2v")
 text = "Dialogue..."
+seconds_per_step = 0.05
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1162966119]
 custom_minimum_size = Vector2(20, 10)
@@ -175,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+offset_left = 489.0
+offset_top = 303.5
+offset_right = 1136.0
+offset_bottom = 458.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -189,6 +221,10 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=914537232]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxTexture_8copa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lc4cd")
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]

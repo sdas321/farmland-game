@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cqt3aohfu3yxq"]
+
+[sub_resource type="GDScript" id="GDScript_akrlt"]
+script/source = "extends CanvasLayer
+
+@onready var name_label: Label = $Panel/NameLabel
+@onready var dialogue_label: Label = $Panel/DialogueLabel
+@onready var choice_container: VBoxContainer = $Panel/ChoiceContainer
+
+var current_node_id: String = \"start\"
+
+var dialogue_data: Dictionary = {
+	\"start\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Howdy, Would you like a tutorial?\",
+		\"choices\": [
+			{\"text\": \"No\", \"next\": \"no_branch\"},
+			{\"text\": \"Yes\", \"next\": \"yes_branch\"}
+		]
+	},
+	\"no_branch\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"How ungrateful.\",
+		\"next\": \"no_branch_2\"
+	},
+	\"no_branch_2\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Do I care though? naaah. So listen.\",
+		\"next\": \"explanation_1\"
+	},
+	\"yes_branch\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Great choice. You have a farm with crops planted already.\",
+		\"next\": \"explanation_1\"
+	},
+	\"explanation_1\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"You just gotta water em mate. After the bar is fully green and dissapears, you can collect them.\",
+		\"choices\": [
+			{\"text\": \"What do I do with them?\", \"next\": \"shop_info\"}
+		]
+	},
+	\"shop_info\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"You get coins. Now, I was kind enough to place a shop for you beside the fence area.\",
+		\"choices\": [
+			{\"text\": \"It looks very small and old?....\", \"next\": \"ungrateful_potato\"},
+			{\"text\": \"Okay?\", \"next\": \"buy_stuff\"}
+		]
+	},
+	\"ungrateful_potato\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"You ungrateful potato. That's what you get.\",
+		\"next\": \"buy_stuff\"
+	},
+	\"buy_stuff\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"You can buy stuff from there and decorate your farm and house.\",
+		\"next\": \"be_greedy\"
+	},
+	\"be_greedy\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Be greedy and you'll pay the price. See what I did there? no? okay.\",
+		\"next\": \"goal\"
+	},
+	\"goal\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Whatever. Just do what you want and be honest. Your goal is..... To rescue me from chicken prison.\",
+		\"choices\": [
+			{\"text\": \"How?\", \"next\": \"figure_it_out\"}
+		]
+	},
+	\"figure_it_out\": {
+		\"speaker\": \"CLuck Norris\",
+		\"text\": \"Figure it out yourself bro.\",
+		\"next\": \"END\"
+	}
+}
+
+func _ready() -> void:
+	show_node(\"start\")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_accept\"):
+		var node = dialogue_data.get(current_node_id, {})
+		if not node.has(\"choices\") and node.has(\"next\"):
+			show_node(node[\"next\"])
+
+func show_node(node_id: String) -> void:
+	if node_id == \"END\" or not dialogue_data.has(node_id):
+		hide()
+		return
+
+	current_node_id = node_id
+	var node = dialogue_data[node_id]
+
+	name_label.text = node.get(\"speaker\", \"\")
+	dialogue_label.text = node.get(\"text\", \"\")
+
+	for child in choice_container.get_children():
+		child.queue_free()
+
+	if node.has(\"choices\"):
+		for choice in node[\"choices\"]:
+			var btn = Button.new()
+			btn.text = choice[\"text\"]
+			btn.pressed.connect(func(): show_node(choice[\"next\"]))
+			choice_container.add_child(btn)
+"
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1786480499]
+script = SubResource("GDScript_akrlt")
+
+[node name="Panel" type="Panel" parent="." unique_id=192634628]
+offset_left = -14.0
+offset_top = 1326.0
+offset_right = 2380.0
+offset_bottom = 1670.0
+
+[node name="NameLabel" type="Label" parent="Panel" unique_id=703495816]
+layout_mode = 0
+offset_left = 44.0
+offset_top = -2.0
+offset_right = 550.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 43
+text = "Cluck Norris"
+
+[node name="DialogueLabel" type="Label" parent="Panel" unique_id=1737335570]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 82.0
+offset_right = 2282.0
+offset_bottom = 309.0
+theme_override_font_sizes/font_size = 31
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="Panel" unique_id=931341149]
+layout_mode = 0
+offset_left = 1760.0
+offset_top = -130.0
+offset_right = 2282.0
+offset_bottom = -4.0

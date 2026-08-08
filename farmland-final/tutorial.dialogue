@@ -1,11 +1,52 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+CLuck Norris: Howdy, Would you like a tutorial?
+- No
+	CLuck Norris: How ungrateful.
+	CLuck Norris: Do I care though? naaah. So listen.
+	CLuck Norris: You have a farm with crops planted already.
+	CLuck Norris: You just gotta water em mate. After the bar is fully green and dissapears, you can collect them.
+	- What do I do with them?
+		CLuck Norris: You get coins. Now, I was kind enough to place a shop for you beside the fence area. 
+		- It looks very small and old?....
+			CLuck Norris: You ungrateful potato. That's what you get. 
+			CLuck Norris: You can buy stuff from there and decorate your farm and house.
+			CLuck Norris: Be greedy and you'll pay the price. 
+			CLuck Norris: See what I did there? no? okay. 
+			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			CLuck Norris: To rescue me from chicken prison. 
+			- How?
+				Cluck Norris: Figure it out yourself bro.
+		- Okay?
+			CLuck Norris: You can buy stuff from there and decorate your farm and house.
+			CLuck Norris: Be greedy and you'll pay the price. 
+			CLuck Norris: See what I did there? no? okay. 
+			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			CLuck Norris: To rescue me from chicken prison. 
+			- How?
+				Cluck Norris: Figure it out yourself bro. 
+
+- Yes
+	CLuck Norris: Great choice. You have a farm with crops planted already.
+	CLuck Norris: You just gotta water em mate. After the bar is fully green and dissapears, you can collect them.
+	- What do I do with them?
+		CLuck Norris: You get coins. Now, I was kind enough to place a shop for you beside the fencing area. 
+		- It looks very small and old?....
+			CLuck Norris: You ungrateful potato. That's what you get. 
+			CLuck Norris: You can buy stuff from there and decorate your farm and house.
+			CLuck Norris: Be greedy and you'll pay the price. 
+			CLuck Norris: See what I did there? no? okay. 
+			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			CLuck Norris: To rescue me from chicken prison. 
+			- How?
+				Cluck Norris: Figure it out yourself bro.
+		- Okay?
+			CLuck Norris: You can buy stuff from there and decorate your farm and house.
+			CLuck Norris: Be greedy and you'll pay the price. 
+			CLuck Norris: See what I did there? no? okay. 
+			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			CLuck Norris: To rescue me from chicken prison. 
+			- How?
+				Cluck Norris: Figure it out yourself bro. 
+
+
 => END

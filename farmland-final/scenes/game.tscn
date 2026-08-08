@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ckomcucpjdjo7" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://dqaylosbuwfow" path="res://assets/game/Tilesets/water.png" id="1_gee14"]
 [ext_resource type="Texture2D" uid="uid://gxf2j4pwd6ge" path="res://assets/game/Tilesets/grass.png" id="2_0tnpc"]
-[ext_resource type="Resource" uid="uid://dmj5iiypht56b" path="res://tutorial.dialogue" id="2_ca42v"]
 [ext_resource type="Script" uid="uid://d3bjik6pfnvaf" path="res://scripts/coin_label.gd" id="2_kvuet"]
 [ext_resource type="Texture2D" uid="uid://cfpy3lq2q7oil" path="res://assets/game/Tilesets/tilled_dirt_wide.png" id="4_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bk06qp7ds6anm" path="res://assets/game/Tilesets/fences.png" id="4_kvpfn"]
@@ -692,7 +691,6 @@ size = Vector2(11, 20)
 position = Vector2(0, -2)
 script = ExtResource("1_0tnpc")
 spawn_point = NodePath("Marker2D")
-dialogue_resource = ExtResource("2_ca42v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2074540043]
 
@@ -735,6 +733,7 @@ tile_map_data = PackedByteArray("AAAGAB4AAAABAAAAAAAGAB8AAAABAAEAAAAHAB4AAAACAAA
 tile_set = SubResource("TileSet_x0ka3")
 
 [node name="player" parent="." unique_id=408169181 instance=ExtResource("8_ir15t")]
+unique_name_in_owner = true
 position = Vector2(519, 338)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=911654626]

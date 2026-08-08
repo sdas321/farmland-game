@@ -5,5 +5,4 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	Global.selected_item = "watering_can"
-	print("Watering can selected!")
 	

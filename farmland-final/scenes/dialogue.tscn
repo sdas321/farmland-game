@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cgae2ibc3j78m"]
 
-[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_758ep"]
-[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="2_758ep"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_3n4vj"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="2_bfpow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hoxo3"]
-atlas = ExtResource("1_758ep")
+atlas = ExtResource("1_3n4vj")
 region = Rect2(163, 178, 90, 27)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2h7b"]
@@ -41,7 +41,7 @@ offset_bottom = 40.0
 
 [node name="DialogueResponsesMenu" type="Container" parent="Control/MarginContainer" unique_id=442642984]
 layout_mode = 2
-script = ExtResource("2_758ep")
+script = ExtResource("2_bfpow")
 metadata/_custom_type_script = "uid://bb52rsfwhkxbn"
 
 [node name="TextureButton" type="TextureButton" parent="Control/MarginContainer" unique_id=937395685]
