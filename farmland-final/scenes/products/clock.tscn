@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://nww25opk3ase"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_qgb4w"]
+[ext_resource type="Script" uid="uid://cd0ye6irlmbab" path="res://scripts/products/clock.gd" id="2_xa010"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgb4w"]
+atlas = ExtResource("1_qgb4w")
+region = Rect2(98, 50, 13, 13)
+
+[node name="Clock" type="TextureRect" unique_id=1897983589]
+texture = SubResource("AtlasTexture_qgb4w")
+script = ExtResource("2_xa010")

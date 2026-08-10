@@ -1,33 +1,35 @@
 ~ start
-CLuck Norris: Howdy, Would you like a tutorial?
+Cluck Norris: Howdy, Would you like a tutorial?
 - No
-	CLuck Norris: How ungrateful.
-	CLuck Norris: Do I care though? naaah. So listen.
-	CLuck Norris: You have a farm with crops planted already.
-	CLuck Norris: You just gotta water em mate. After the bar is fully green and dissapears, you can collect them.
+	Cluck Norris: How ungrateful.
+	Cluck Norris: Do I care though? naaah. So listen.
+	Cluck Norris: You have a farm with crops planted already.
+	Cluck Norris: You just gotta water em mate. Click on the plant or press and hold.
+	Cluck Norris: After the bar is fully green and dissapears, you can collect them by walking over them.
 	- What do I do with them?
-		CLuck Norris: You get coins. Now, I was kind enough to place a shop for you beside the fence area. 
+		Cluck Norris: You get coins. Now, I was kind enough to place a shop for you beside the fence area. 
 		- It looks very small and old?....
-			CLuck Norris: You ungrateful potato. That's what you get. 
-			CLuck Norris: You can buy stuff from there and decorate your farm and house.
-			CLuck Norris: Be greedy and you'll pay the price. 
-			CLuck Norris: See what I did there? no? okay. 
-			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
-			CLuck Norris: To rescue me from chicken prison. 
+			Cluck Norris: You ungrateful potato. That's what you get. 
+			Cluck Norris: You can buy stuff from there and decorate your farm and house.
+			Cluck Norris: Be greedy and you'll pay the price. 
+			Cluck Norris: See what I did there? no? okay. 
+			Cluck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			Cluck Norris: To rescue me from chicken prison. 
 			- How?
 				Cluck Norris: Figure it out yourself bro.
 		- Okay?
-			CLuck Norris: You can buy stuff from there and decorate your farm and house.
-			CLuck Norris: Be greedy and you'll pay the price. 
-			CLuck Norris: See what I did there? no? okay. 
-			CLuck Norris: Whatever. Just do what you want and be honest. Your goal is.....
-			CLuck Norris: To rescue me from chicken prison. 
+			Cluck Norris: You can buy stuff from there and decorate your farm and house.
+			Cluck Norris: Be greedy and you'll pay the price. 
+			Cluck Norris: See what I did there? no? okay. 
+			Cluck Norris: Whatever. Just do what you want and be honest. Your goal is.....
+			Cluck Norris: To rescue me from chicken prison. 
 			- How?
 				Cluck Norris: Figure it out yourself bro. 
 
 - Yes
 	CLuck Norris: Great choice. You have a farm with crops planted already.
-	CLuck Norris: You just gotta water em mate. After the bar is fully green and dissapears, you can collect them.
+	Cluck Norris: You just gotta water em mate. Click on the plant or press and hold.
+	Cluck Norris: After the bar is fully green and dissapears, you can collect them by walking over them.
 	- What do I do with them?
 		CLuck Norris: You get coins. Now, I was kind enough to place a shop for you beside the fencing area. 
 		- It looks very small and old?....

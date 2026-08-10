@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwvc74yhp073d"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_p5ylc"]
+[ext_resource type="Script" uid="uid://dlipcild11mbu" path="res://scripts/products/table.gd" id="2_76ums"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5ylc"]
+atlas = ExtResource("1_p5ylc")
+region = Rect2(49, 48.63452, 14, 14.3654785)
+
+[node name="Table" type="TextureRect" unique_id=90012460]
+texture = SubResource("AtlasTexture_p5ylc")
+script = ExtResource("2_76ums")

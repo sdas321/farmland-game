@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bg2d632x8xtrq"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_xf8oi"]
+[ext_resource type="Script" uid="uid://b1s6ndthqr1pi" path="res://scripts/products/painting.gd" id="2_km1bt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf8oi"]
+atlas = ExtResource("1_xf8oi")
+region = Rect2(35, 5, 12, 8)
+
+[node name="Painting" type="TextureRect" unique_id=1211941177]
+texture = SubResource("AtlasTexture_xf8oi")
+script = ExtResource("2_km1bt")

@@ -67,23 +67,26 @@ func _tween_scroll(scrollValue) -> void:
 
 func _on_purchase_pressed() -> void:
 	var children = object_container.get_children()
-	if children.size() == 0: return
+	if children.size() == 0: 
+		return
 	
 	var active_node = children[current_item_index]
-	var active_product = null
+	var active_product = active_node
 	
 	if active_node.get_child_count() > 0:
 		active_product = active_node.get_child(0)
-	else:
-		active_product = active_node
 		
-	if active_product and "item_cost" in active_product:
-		var cost = active_product.item_cost
-		var item_name = active_product.item_name
+	var cost = active_product.get("item_cost")
+	var item_name = active_product.get("item_name")
+	
+	if item_name == null:
+		item_name = active_product.name.to_lower()
 		
+	if cost != null:
 		if Global.coins >= cost:
-			Global.purchase(cost)
+			Global.purchase(cost)          
 			Global.add_to_inventory(item_name)
+			print("Purchased: ", item_name)
 
 func _on_close_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")

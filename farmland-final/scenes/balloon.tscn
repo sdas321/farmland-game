@@ -68,10 +68,10 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsek3"]
 texture = ExtResource("2_m0o5a")
-expand_margin_left = 108.0
+expand_margin_left = 289.0
 expand_margin_top = 36.0
-expand_margin_right = 24.0
-expand_margin_bottom = 36.0
+expand_margin_right = 205.0
+expand_margin_bottom = 60.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kvj2v"]
 

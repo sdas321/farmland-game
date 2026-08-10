@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cn5jl67a1bqf2"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_s0e3d"]
+[ext_resource type="Script" uid="uid://ccunx3mshkqba" path="res://scripts/products/lamp.gd" id="2_rh7tn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0e3d"]
+atlas = ExtResource("1_s0e3d")
+region = Rect2(83, 16, 10, 11)
+
+[node name="Lamp" type="TextureRect" unique_id=1632105935]
+texture = SubResource("AtlasTexture_s0e3d")
+script = ExtResource("2_rh7tn")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bc6p5smj6q7j5"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_clav8"]
+[ext_resource type="Script" uid="uid://dw6yadkbrrqj7" path="res://scripts/products/drawer.gd" id="2_6148s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clav8"]
+atlas = ExtResource("1_clav8")
+region = Rect2(49, 32, 14, 16.341496)
+
+[node name="Drawer" type="TextureRect" unique_id=1966076364]
+texture = SubResource("AtlasTexture_clav8")
+script = ExtResource("2_6148s")

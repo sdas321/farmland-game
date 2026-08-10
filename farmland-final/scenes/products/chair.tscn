@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bc8nfdid48xy2"]
+
+[ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="1_a4m1u"]
+[ext_resource type="Script" uid="uid://b0skpk6psiqn3" path="res://scripts/products/chair.gd" id="2_i0ohq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4m1u"]
+atlas = ExtResource("1_a4m1u")
+region = Rect2(67, 33, 10, 13)
+
+[node name="Chait" type="TextureRect" unique_id=1770056079]
+texture = SubResource("AtlasTexture_a4m1u")
+script = ExtResource("2_i0ohq")

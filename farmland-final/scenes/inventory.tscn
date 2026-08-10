@@ -57,6 +57,7 @@ script = ExtResource("1_ty45s")
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventory/MarginContainer" unique_id=1348018501]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

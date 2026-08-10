@@ -16,7 +16,6 @@ func _ready() -> void:
 	if sprite == null:
 		return
 
-	# Generate a unique key based on exact world coordinates (e.g. "crop_150_300")
 	crop_id = "crop_" + str(int(round(global_position.x))) + "_" + str(int(round(global_position.y)))
 
 	body_entered.connect(self._on_body_entered)
