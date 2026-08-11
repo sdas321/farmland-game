@@ -48,15 +48,15 @@ offset_bottom = 1524.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xkrkv")
 
 [node name="Chicken" type="Sprite2D" parent="." unique_id=1306211214]
-position = Vector2(416, 1233)
-scale = Vector2(17.749996, 16.291664)
+position = Vector2(442.00003, 1265)
+scale = Vector2(23.147722, 22.395828)
 texture = SubResource("AtlasTexture_m8x0n")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1680635787]
 layout_mode = 0
 offset_left = 575.0
-offset_top = 1137.0
-offset_right = 1386.0
+offset_top = 1026.0
+offset_right = 1557.0
 offset_bottom = 1357.0
 texture_normal = SubResource("AtlasTexture_crhno")
 stretch_mode = 0
@@ -68,13 +68,29 @@ anchor_left = 0.09200001
 anchor_top = -0.38300002
 anchor_right = 0.09200001
 anchor_bottom = -0.38300002
-offset_left = -13.612007
-offset_top = 163.26001
-offset_right = 713.388
-offset_bottom = 280.26
-theme_override_colors/font_color = Color(0.4392157, 0.23921569, 0.050980393, 1)
+offset_left = -18.34401
+offset_top = 281.77295
+offset_right = 708.656
+offset_bottom = 398.77295
+theme_override_colors/font_color = Color(0.2902984, 0.15055615, 0.02197561, 1)
 theme_override_font_sizes/font_size = 40
-text = "Loren ipsum dolor sit amet bla bla"
+text = "bla bla bla bla
+"
+
+[node name="charac_name" type="Label" parent="TextureButton" unique_id=730683798]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09200001
+anchor_top = -0.38300002
+anchor_right = 0.09200001
+anchor_bottom = -0.38300002
+offset_left = -27.34401
+offset_top = 198.77301
+offset_right = 566.656
+offset_bottom = 261.773
+theme_override_colors/font_color = Color(0.4392157, 0.23921569, 0.050980393, 1)
+theme_override_font_sizes/font_size = 55
+text = "Cluck Norris"
 
 [node name="Title" type="Label" parent="." unique_id=1009428894]
 layout_mode = 0
@@ -91,17 +107,18 @@ layout_mode = 0
 offset_left = -613.0
 offset_top = 164.0
 offset_right = 1107.0
-offset_bottom = 1065.0
+offset_bottom = 942.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 51
-text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
- Duis aute irure dolor in reprehenderit in voluptate
- velit esse cillum dolore eu fugiat nulla 
-pariatur. Excepteur sint occaecat cupidatat non proident, 
-sunt in culpa qui officia deserunt mollit anim id est laborum."
+text = "You can grow your crops by clicking on them or press and hold. 
+
+Once the bar on top of them dissapears, you can harvest them by 
+standing on them. 
+
+Once harvested, you can buy items from the shop with the coins
+
+you get. You can buy furniture, as well as animals to decorate your 
+farm. There are secret endings to the game."
 
 [node name="Home" type="TextureButton" parent="." unique_id=1489782415]
 layout_mode = 0

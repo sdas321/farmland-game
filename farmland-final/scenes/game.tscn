@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ce75eqj3jf54o" path="res://scenes/time.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b3kktp7ey2w06" path="res://scenes/characters/plants/crop.tscn" id="12_kvuet"]
 [ext_resource type="Script" uid="uid://c5y06n6m70sw4" path="res://scripts/marketcanvas.gd" id="14_ir15t"]
-[ext_resource type="PackedScene" uid="uid://cq8jkcc3flauv" path="res://scenes/characters/chicken.tscn" id="14_trtic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvuet"]
 texture = ExtResource("1_gee14")
@@ -835,10 +834,6 @@ position = Vector2(0, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house/house door outside" unique_id=788270208]
 position = Vector2(663.5, 414)
 shape = SubResource("RectangleShape2D_1kice")
-
-[node name="Chicken" parent="." unique_id=1368153161 instance=ExtResource("14_trtic")]
-visible = false
-position = Vector2(368, 292)
 
 [connection signal="body_entered" from="market/market door" to="." method="_on_market_door_body_entered"]
 [connection signal="body_entered" from="house/house door outside" to="." method="_on_house_door_outside_body_entered"]

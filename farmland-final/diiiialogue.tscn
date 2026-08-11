@@ -123,7 +123,7 @@ offset_left = 44.0
 offset_top = -2.0
 offset_right = 550.0
 offset_bottom = 57.0
-theme_override_font_sizes/font_size = 43
+theme_override_font_sizes/font_size = 80
 text = "Cluck Norris"
 
 [node name="DialogueLabel" type="Label" parent="Panel" unique_id=1737335570]
@@ -132,7 +132,7 @@ offset_left = 36.0
 offset_top = 82.0
 offset_right = 2282.0
 offset_bottom = 309.0
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 72
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="Panel" unique_id=931341149]
 layout_mode = 0
