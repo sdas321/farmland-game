@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://gya1xh0nb872"]
+
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_yqeox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjb58"]
+atlas = ExtResource("1_yqeox")
+region = Rect2(741, 38, 22, 22)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=192534758]
+
+[node name="Control" type="Control" parent="." unique_id=1976518428]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="Control" unique_id=613079202]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2281.0
+offset_top = 5.0
+offset_right = 2303.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_vjb58")
+
+[node name="Label" type="Label" parent="Control/TextureButton" unique_id=1139518766]
+layout_mode = 0
+offset_left = 4.444
+offset_top = -6.0
+offset_right = 18.444
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.49317467, 0.27263793, 0.0987258, 1)
+text = "..."
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Control" unique_id=1466507564]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2281.0
+offset_top = 31.0
+offset_right = 2303.0
+offset_bottom = 53.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_vjb58")
+
+[node name="TextureButton3" type="TextureButton" parent="Control" unique_id=1441892056]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2281.0
+offset_top = 56.0
+offset_right = 2303.0
+offset_bottom = 78.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_vjb58")

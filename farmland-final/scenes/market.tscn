@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b4nj4i5m5dgc3" path="res://scripts/products/bed.gd" id="5_ennqm"]
 [ext_resource type="Texture2D" uid="uid://bfoxj8jw7nr6m" path="res://assets/game/Characters/chicken_sprites.png" id="5_ygeob"]
 [ext_resource type="Script" uid="uid://cd0ye6irlmbab" path="res://scripts/products/clock.gd" id="6_4okcq"]
+[ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="6_q8ffd"]
 [ext_resource type="Script" uid="uid://dw6yadkbrrqj7" path="res://scripts/products/drawer.gd" id="7_8yfkx"]
 [ext_resource type="Texture2D" uid="uid://cmfh0no4k7mlj" path="res://extra/purchase button.png" id="7_co8of"]
 [ext_resource type="Script" uid="uid://b1s6ndthqr1pi" path="res://scripts/products/painting.gd" id="8_x73q4"]
@@ -224,6 +225,7 @@ script = ExtResource("5_ennqm")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/bed" unique_id=1529731799]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 theme_override_font_sizes/font_size = 32
 text = "200 coins"
 label_settings = SubResource("LabelSettings_byi8v")
@@ -242,6 +244,7 @@ script = ExtResource("6_4okcq")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/clock" unique_id=128702661]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "150 coins
 "
 label_settings = SubResource("LabelSettings_yb6qj")
@@ -260,6 +263,7 @@ script = ExtResource("7_8yfkx")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/drawer" unique_id=1700126641]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "300 coins"
 label_settings = SubResource("LabelSettings_q8ffd")
 horizontal_alignment = 1
@@ -277,6 +281,7 @@ script = ExtResource("8_x73q4")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/painting" unique_id=1632423250]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "1200 coins"
 label_settings = SubResource("LabelSettings_8bj48")
 horizontal_alignment = 1
@@ -294,6 +299,7 @@ script = ExtResource("9_byi8v")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/chair" unique_id=481032608]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "180 coins"
 label_settings = SubResource("LabelSettings_w6idw")
 horizontal_alignment = 1
@@ -311,6 +317,7 @@ script = ExtResource("10_yb6qj")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/table" unique_id=1963476736]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "250 coins"
 label_settings = SubResource("LabelSettings_23wqn")
 horizontal_alignment = 1
@@ -328,6 +335,7 @@ script = ExtResource("11_q8ffd")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/carpet" unique_id=854815324]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "1000 coins"
 label_settings = SubResource("LabelSettings_u27nh")
 horizontal_alignment = 1
@@ -345,6 +353,7 @@ script = ExtResource("12_byi8v")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/lamp" unique_id=939004990]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "400 coins"
 label_settings = SubResource("LabelSettings_yuhdm")
 horizontal_alignment = 1
@@ -362,6 +371,7 @@ script = ExtResource("14_yb6qj")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/cow" unique_id=1055998809]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "2200 coins"
 label_settings = SubResource("LabelSettings_q1gjl")
 horizontal_alignment = 1
@@ -379,6 +389,7 @@ script = ExtResource("16_q8ffd")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/objects/chicken" unique_id=1809402634]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_q8ffd")
 text = "2000 coins"
 label_settings = SubResource("LabelSettings_osrly")
 
@@ -427,12 +438,13 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Purchase" unique_id=360975953]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 29.0
-offset_right = 372.0
-offset_bottom = 104.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+offset_left = 159.0
+offset_top = 4.0
+offset_right = 443.0
+offset_bottom = 161.0
+theme_override_colors/font_color = Color(0.18502244, 0.5165549, 0.1613273, 1)
+theme_override_fonts/font = ExtResource("6_q8ffd")
+theme_override_font_sizes/font_size = 50
 text = "PURCHASE
 "
 
@@ -477,9 +489,12 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/coin label" unique_id=743898660]
 layout_mode = 0
-offset_left = 7.857141
-offset_right = 58.85714
-offset_bottom = 23.0
+offset_left = 11.249997
+offset_top = -0.55555534
+offset_right = 81.25
+offset_bottom = 22.444445
+theme_override_fonts/font = ExtResource("6_q8ffd")
+theme_override_font_sizes/font_size = 14
 text = "Coins: 0"
 script = ExtResource("18_yb6qj")
 

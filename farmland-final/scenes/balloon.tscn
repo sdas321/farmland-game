@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://scenes/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://82vtslxktxhj" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box big.png" id="2_m0o5a"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="4_hsek3"]
 [ext_resource type="Texture2D" uid="uid://c80an3y1fdp8l" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box medium.png" id="5_i80d5"]
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="6_i80d5"]
 
@@ -183,7 +184,8 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
-theme_override_colors/default_color = Color(0.22543648, 0.14392346, 0.009488785, 1)
+theme_override_colors/default_color = Color(0.42541558, 0.22092184, 0.008744732, 1)
+theme_override_fonts/normal_font = ExtResource("4_hsek3")
 theme_override_font_sizes/normal_font_size = 49
 bbcode_enabled = true
 text = "Character"
@@ -194,7 +196,8 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.7243722, 0.488374, 0.19880888, 1)
+theme_override_fonts/normal_font = ExtResource("4_hsek3")
 theme_override_font_sizes/normal_font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_kvj2v")
 text = "Dialogue..."
@@ -207,6 +210,8 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=821575988]
 unique_name_in_owner = true
+scale = Vector2(2.15, 2.4)
+color = Color(0.6328331, 0.4279305, 0.21588531, 1)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=452325722]
@@ -235,7 +240,8 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=914537232]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.7254902, 0.49019608, 0.2, 1)
+theme_override_fonts/font = ExtResource("4_hsek3")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_8copa")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lc4cd")

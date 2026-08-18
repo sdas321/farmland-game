@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://0vksxdp5nots" path="res://scripts/pause_menu.gd" id="1_kukqi"]
 [ext_resource type="Texture2D" uid="uid://bvvqpqb8qnbna" path="res://extra/Screenshot 2026-07-21 at 1.45.50 PM.png" id="1_myx47"]
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_kukqi"]
+[ext_resource type="FontFile" uid="uid://52amyn0vm1io" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin.otf" id="4_1s2dm"]
+[ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="5_88e76"]
+[ext_resource type="FontFile" uid="uid://cdfjyv8tur2hq" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/Super Bouncer.ttf" id="6_knqa7"]
+[ext_resource type="Texture2D" uid="uid://cqu3ryy6sb05b" path="res://assets/game/Characters/Basic Charakter Spritesheet.png" id="7_71k7c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
 texture = ExtResource("1_myx47")
@@ -10,6 +14,10 @@ texture = ExtResource("1_myx47")
 [sub_resource type="AtlasTexture" id="AtlasTexture_7l7mv"]
 atlas = ExtResource("2_kukqi")
 region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmnsq"]
+atlas = ExtResource("7_71k7c")
+region = Rect2(16, 12, 16, 21)
 
 [node name="Pause_menu" type="Control" unique_id=577579894]
 layout_mode = 3
@@ -41,10 +49,11 @@ stretch_mode = 0
 [node name="Label" type="Label" parent="Panel/TextureButton" unique_id=1805708606]
 layout_mode = 0
 offset_left = 212.0
-offset_top = 5.0
-offset_right = 410.0
-offset_bottom = 118.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_top = -5.0
+offset_right = 432.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0.55417657, 0.34834224, 0.16518208, 1)
+theme_override_fonts/font = ExtResource("4_1s2dm")
 theme_override_font_sizes/font_size = 82
 text = "PLAY"
 
@@ -59,13 +68,58 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="Panel/TextureButton2" unique_id=1682334412]
 layout_mode = 0
-offset_left = 212.0
-offset_top = 5.0
-offset_right = 410.0
-offset_bottom = 118.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 208.0
+offset_top = -4.0
+offset_right = 472.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.5529412, 0.34901962, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("5_88e76")
 theme_override_font_sizes/font_size = 82
 text = "QUIT "
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1657334606]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 367.0
+offset_right = 1664.0
+offset_bottom = 570.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=24638781]
+layout_mode = 0
+offset_left = -437.0
+offset_top = 227.0
+offset_right = 10.0
+offset_bottom = 680.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect" unique_id=369824331]
+layout_mode = 0
+offset_left = 1344.0
+offset_top = -21.0
+offset_right = 1691.0
+offset_bottom = 432.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
+[node name="tite" type="Label" parent="." unique_id=1652549320]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 404.0
+offset_right = 1661.0
+offset_bottom = 668.0
+theme_override_colors/font_color = Color(1, 1, 0.34509805, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_knqa7")
+theme_override_font_sizes/font_size = 170
+text = "Game Paused"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=887637698]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 944.0
+offset_right = 699.0
+offset_bottom = 1373.0
+texture = SubResource("AtlasTexture_cmnsq")
 
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Panel/TextureButton2" to="." method="_on_quit_button_pressed"]

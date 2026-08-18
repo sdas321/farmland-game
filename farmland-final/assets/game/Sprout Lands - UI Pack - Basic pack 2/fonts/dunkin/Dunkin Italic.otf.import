@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://6k0pm4vns6x0"
+path="res://.godot/imported/Dunkin Italic.otf-09f9bdcf6ef5500a55d324d1f2741259.fontdata"
+
+[deps]
+
+source_file="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Italic.otf"
+dest_files=["res://.godot/imported/Dunkin Italic.otf-09f9bdcf6ef5500a55d324d1f2741259.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

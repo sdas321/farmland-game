@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bfoxj8jw7nr6m" path="res://assets/game/Characters/chicken_sprites.png" id="3_wi5qh"]
 [ext_resource type="Texture2D" uid="uid://82vtslxktxhj" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Dialouge UI/dialog box big.png" id="4_e0xnd"]
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="6_m8x0n"]
+[ext_resource type="FontFile" uid="uid://52amyn0vm1io" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin.otf" id="6_xqkvd"]
+[ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="7_dhu30"]
+[ext_resource type="FontFile" uid="uid://cdfjyv8tur2hq" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/Super Bouncer.ttf" id="8_nxcge"]
+[ext_resource type="AudioStream" uid="uid://lij3ev3l5nhi" path="res://audio/button_press.ogg" id="10_dhu30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30apa"]
 atlas = ExtResource("2_xkrkv")
@@ -48,18 +52,19 @@ offset_bottom = 1524.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xkrkv")
 
 [node name="Chicken" type="Sprite2D" parent="." unique_id=1306211214]
-position = Vector2(442.00003, 1265)
-scale = Vector2(23.147722, 22.395828)
+position = Vector2(1916, 1336)
+scale = Vector2(20.028402, 19.864582)
 texture = SubResource("AtlasTexture_m8x0n")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1680635787]
 layout_mode = 0
-offset_left = 575.0
-offset_top = 1026.0
-offset_right = 1557.0
-offset_bottom = 1357.0
+offset_left = 1081.0
+offset_top = 1171.0
+offset_right = 1794.0
+offset_bottom = 1390.0
 texture_normal = SubResource("AtlasTexture_crhno")
 stretch_mode = 0
+flip_h = true
 
 [node name="dialogue" type="Label" parent="TextureButton" unique_id=1291090142]
 layout_mode = 1
@@ -68,57 +73,46 @@ anchor_left = 0.09200001
 anchor_top = -0.38300002
 anchor_right = 0.09200001
 anchor_bottom = -0.38300002
-offset_left = -18.34401
-offset_top = 281.77295
-offset_right = 708.656
-offset_bottom = 398.77295
-theme_override_colors/font_color = Color(0.2902984, 0.15055615, 0.02197561, 1)
-theme_override_font_sizes/font_size = 40
-text = "bla bla bla bla
+offset_left = -31.596008
+offset_top = 156.87695
+offset_right = 695.404
+offset_bottom = 273.87695
+theme_override_colors/font_color = Color(0.5647059, 0.38431373, 0.36862746, 1)
+theme_override_fonts/font = ExtResource("6_xqkvd")
+theme_override_font_sizes/font_size = 37
+text = "Hi my name is Cluck Norris
 "
 
-[node name="charac_name" type="Label" parent="TextureButton" unique_id=730683798]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.09200001
-anchor_top = -0.38300002
-anchor_right = 0.09200001
-anchor_bottom = -0.38300002
-offset_left = -27.34401
-offset_top = 198.77301
-offset_right = 566.656
-offset_bottom = 261.773
-theme_override_colors/font_color = Color(0.4392157, 0.23921569, 0.050980393, 1)
-theme_override_font_sizes/font_size = 55
-text = "Cluck Norris"
+[node name="Text" type="Label" parent="." unique_id=839042622]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 369.0
+offset_right = 2530.0
+offset_bottom = 1147.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_dhu30")
+theme_override_font_sizes/font_size = 48
+text = "You can grow your crops by clicking on them or 
+press and hold. 
+
+Once the bar below of them dissapears, you can
+harvest them by standing on them. 
+
+Once harvested, you can buy items from the shop
+with the coins you get. You can buy furniture, as 
+well as animals to decorate your farm. There are 
+secret endings to the game."
 
 [node name="Title" type="Label" parent="." unique_id=1009428894]
 layout_mode = 0
-offset_left = 960.0
+offset_left = 892.0
 offset_top = 205.0
-offset_right = 1830.0
-offset_bottom = 315.0
+offset_right = 1762.0
+offset_bottom = 335.0
 theme_override_colors/font_color = Color(0.4410396, 0.24336776, 0.045822926, 1)
-theme_override_font_sizes/font_size = 80
+theme_override_fonts/font = ExtResource("8_nxcge")
+theme_override_font_sizes/font_size = 117
 text = "How to Play"
-
-[node name="Text" type="Label" parent="Title" unique_id=839042622]
-layout_mode = 0
-offset_left = -613.0
-offset_top = 164.0
-offset_right = 1107.0
-offset_bottom = 942.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 51
-text = "You can grow your crops by clicking on them or press and hold. 
-
-Once the bar on top of them dissapears, you can harvest them by 
-standing on them. 
-
-Once harvested, you can buy items from the shop with the coins
-
-you get. You can buy furniture, as well as animals to decorate your 
-farm. There are secret endings to the game."
 
 [node name="Home" type="TextureButton" parent="." unique_id=1489782415]
 layout_mode = 0
@@ -128,5 +122,8 @@ offset_right = 2094.0
 offset_bottom = 364.0
 texture_normal = SubResource("AtlasTexture_xqkvd")
 stretch_mode = 0
+
+[node name="button_press" type="AudioStreamPlayer" parent="." unique_id=583171788]
+stream = ExtResource("10_dhu30")
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]

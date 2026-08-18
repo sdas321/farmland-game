@@ -4,7 +4,7 @@ extends Control
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var name_label: Label = %ItemNameLabel
 @onready var price_label: Label = %ItemPriceLabel
-
+ 
 var targetScroll = 0
 var current_item_index: int = 0
 

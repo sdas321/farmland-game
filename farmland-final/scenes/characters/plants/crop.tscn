@@ -67,10 +67,10 @@ speed_scale = 1.07
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1342351561]
 texture_filter = 1
-offset_left = 23.0
-offset_top = 7.0
-offset_right = 38.0
-offset_bottom = 8.0
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 39.0
+offset_bottom = 41.0
 theme_override_font_sizes/font_size = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_kdi87")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xjw3h")

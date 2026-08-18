@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bxn3e2g7l3xdr"
+path="res://.godot/imported/Dunkin Sans Bold Italic.otf-49e1ba53dd437eb54d325b1cf86d168b.fontdata"
+
+[deps]
+
+source_file="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans Bold Italic.otf"
+dest_files=["res://.godot/imported/Dunkin Sans Bold Italic.otf-49e1ba53dd437eb54d325b1cf86d168b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
