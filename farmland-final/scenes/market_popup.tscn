@@ -1,9 +1,30 @@
 [gd_scene format=3 uid="uid://bgbd1ejnql3ej"]
 
-[node name="Control" type="Control" unique_id=1502599310]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_wlxh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulaqb"]
+atlas = ExtResource("1_wlxh1")
+region = Rect2(259, 180, 90, 25)
+
+[node name="Control" type="CanvasLayer" unique_id=1909463307]
+
+[node name="Control" type="Control" parent="." unique_id=354524953]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1725392619]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = 10.0
+offset_right = 241.0
+offset_bottom = 50.0
+grow_horizontal = 0
 grow_vertical = 2
+texture = SubResource("AtlasTexture_ulaqb")

@@ -125,5 +125,6 @@ stretch_mode = 0
 
 [node name="button_press" type="AudioStreamPlayer" parent="." unique_id=583171788]
 stream = ExtResource("10_dhu30")
+volume_db = 10.491
 
 [connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
