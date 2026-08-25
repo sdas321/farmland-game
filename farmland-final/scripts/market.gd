@@ -9,27 +9,27 @@ var targetScroll = 0
 var current_item_index: int = 0
 
 func _ready() -> void:
-	_set_selection()
+	_selection()
 	
-func _set_selection() -> void:
+func _selection() -> void:
 	await get_tree().create_timer(0.01).timeout
-	_select_deselect_highlight()
+	_highlight()
 
 func _on_previous_pressed() -> void:
 	if current_item_index > 0:
-		var scrollValue = targetScroll - _get_scroll_distance_to_next(-1)
+		var scrollValue = targetScroll - _scroll(-1)
 		current_item_index -= 1
-		_select_deselect_highlight()
+		_highlight()
 		await _tween_scroll(scrollValue)
 
 func _on_next_pressed() -> void:
 	if current_item_index < object_container.get_child_count() - 1:
-		var scrollValue = targetScroll + _get_scroll_distance_to_next(1)
+		var scrollValue = targetScroll + _scroll(1)
 		current_item_index += 1
-		_select_deselect_highlight()
+		_highlight()
 		await _tween_scroll(scrollValue)
 
-func _get_scroll_distance_to_next(direction: int) -> float:
+func _scroll(direction: int) -> float:
 	var separation = object_container.get_theme_constant("separation")
 	var children = object_container.get_children()
 	var current_obj = children[current_item_index]
@@ -49,7 +49,7 @@ func _get_space_between() -> int:
 	var objectSize = object_container.get_children()[current_item_index].size.x
 	return distanceSize + objectSize 
 
-func _select_deselect_highlight() -> void:
+func _highlight() -> void:
 	var children = object_container.get_children()
 	for i in range(children.size()):
 		var object = children[i]
@@ -57,6 +57,8 @@ func _select_deselect_highlight() -> void:
 		
 		if i == current_item_index:
 			object.modulate = Color(1.0, 1.0, 1.0, 1.0) 
+		else:
+			object.modulate= Color()
 
 func _tween_scroll(scrollValue) -> void:
 	targetScroll = scrollValue
@@ -90,3 +92,5 @@ func _on_purchase_pressed() -> void:
 
 func _on_close_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	
+	

@@ -9,7 +9,7 @@ extends Area2D
 
 var crop_id: String = ""
 var current_water: float = 0.0
-var is_fully_grown: bool = false
+var is_grown: bool = false
 var is_mouse_inside: bool = false
 
 func _ready() -> void:
@@ -24,13 +24,13 @@ func _ready() -> void:
 
 	if Global.plant_data.has(crop_id):
 		current_water = Global.plant_data[crop_id].get("current_water", 0.0)
-		is_fully_grown = Global.plant_data[crop_id].get("is_fully_grown", false)
-		_apply_saved_state()
+		is_grown = Global.plant_data[crop_id].get("is_fully_grown", false)
+		growing()
 	else:
-		_init_default_crop()
+		default_crop()
 
-func _init_default_crop() -> void:
-	is_fully_grown = false
+func default_crop() -> void:
+	is_grown = false
 	current_water = 0.0
 	
 	if progress_bar:
@@ -42,15 +42,15 @@ func _init_default_crop() -> void:
 		sprite.stop()
 		sprite.frame = 0
 
-func _apply_saved_state() -> void:
+func growing() -> void:
 	if progress_bar:
 		progress_bar.max_value = max_water
 		progress_bar.value = current_water
-		progress_bar.visible = not is_fully_grown
+		progress_bar.visible = not is_grown
 
 	var ratio: float = current_water / max_water
 	if sprite:
-		if is_fully_grown:
+		if is_grown:
 			sprite.frame = 3
 		else:
 			sprite.frame = int(ratio * 4.0)
@@ -58,15 +58,15 @@ func _apply_saved_state() -> void:
 func save_crop_state() -> void:
 	Global.plant_data[crop_id] = {
 		"current_water": current_water,
-		"is_fully_grown": is_fully_grown
+		"is_grown": is_grown
 	}
 
 func reset_crop() -> void:
-	_init_default_crop()
+	default_crop()
 	save_crop_state()
 
 func _process(delta: float) -> void:
-	if is_fully_grown:
+	if is_grown:
 		return
 
 	if is_mouse_inside and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -88,17 +88,17 @@ func water_crop(delta: float) -> void:
 	else:
 		if sprite:
 			sprite.frame = 3
-		is_fully_grown = true
+		is_grown = true
 		if progress_bar:
 			progress_bar.visible = false
 
 	save_crop_state()
 
 func _on_body_entered(body: Node2D) -> void:
-	if is_fully_grown and "player" in body.name.to_lower():
-		collect_crop()
+	if is_grown and "player" in body.name.to_lower():
+		collection()
 
-func collect_crop() -> void:
+func collection() -> void:
 	Global.add_coins(coins_reward)
 	reset_crop()
 

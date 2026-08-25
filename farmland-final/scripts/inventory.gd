@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var slot_container: HBoxContainer = %HBoxContainer
+@onready var slot: HBoxContainer = %HBoxContainer
 
 
 var products: Dictionary = {
@@ -19,14 +19,14 @@ var products: Dictionary = {
 var item_textures: Dictionary = {}
 
 func _ready() -> void:
-	_extract_textures_from_scenes()
+	_spawn_items()
 	
 	if not Global.inventory_updated.is_connected(self._on_inventory_changed):
 		Global.inventory_updated.connect(self._on_inventory_changed)
 		
 	_refresh_inventory()
 
-func _extract_textures_from_scenes() -> void:
+func _spawn_items() -> void:
 	for item_name in products.keys():
 		var scene: PackedScene = products[item_name]
 		if scene:
@@ -53,13 +53,13 @@ func _on_inventory_changed() -> void:
 	_refresh_inventory()
 
 func _refresh_inventory() -> void:
-	if slot_container == null:
+	if slot == null:
 		return
 
-	var physical_slots = slot_container.get_children()
+	var p_slots = slot.get_children()
 
-	for i in range(physical_slots.size()):
-		var slot_button = physical_slots[i]
+	for i in range(p_slots.size()):
+		var slot_button = p_slots[i]
 
 		if slot_button is TextureButton:
 			if i < Global.inventory.size():
