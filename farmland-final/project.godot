@@ -19,6 +19,7 @@ config/icon="res://extra/icon.svg"
 
 Global="*uid://bcmqr0xfl77ki"
 DialogueManager="*uid://c3rodes2l3gxb"
+Toast="*uid://bgbd1ejnql3ej"
 
 [dialogue_manager]
 

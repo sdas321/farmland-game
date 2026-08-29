@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_aifk4"]
 [ext_resource type="Script" uid="uid://bl27muup8nomi" path="res://scripts/market.gd" id="1_k70a0"]
+[ext_resource type="PackedScene" uid="uid://bgbd1ejnql3ej" path="res://scenes/market_popup.tscn" id="2_8bj48"]
 [ext_resource type="Texture2D" uid="uid://cio0cw13p4c3u" path="res://assets/game/Objects/basic_furniture.png" id="2_iks0y"]
 [ext_resource type="Texture2D" uid="uid://7pyb2b4wm0ac" path="res://extra/market_updated.png" id="2_ygeob"]
 [ext_resource type="Texture2D" uid="uid://nmu6hxm04n0t" path="res://assets/game/Characters/cow_sprites.png" id="4_d6tgm"]
@@ -141,6 +142,8 @@ offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k70a0")
+
+[node name="Toast" parent="." unique_id=1909463307 instance=ExtResource("2_8bj48")]
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1507020235]
 layout_mode = 1
@@ -489,12 +492,12 @@ stretch_mode = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/coin label" unique_id=743898660]
 layout_mode = 0
-offset_left = 11.249997
-offset_top = -0.55555534
-offset_right = 81.25
-offset_bottom = 22.444445
+offset_left = 9.999997
+offset_top = 4.2592583
+offset_right = 80.0
+offset_bottom = 27.259258
 theme_override_fonts/font = ExtResource("6_q8ffd")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 10
 text = "Coins: 0"
 script = ExtResource("18_yb6qj")
 

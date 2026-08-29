@@ -7,6 +7,9 @@ var inventory: Array[String] = []
 var selected_item: String = "watering_can"
 var plant_data: Dictionary = {}
 
+var placed_furniture: Array[Dictionary] = []
+var placed_animals: Array[Dictionary] = []
+
 var market_door_entered: bool = false
 var house_door_entered: bool = false
 var player_spawn_position: Vector2 = Vector2.ZERO
@@ -46,5 +49,7 @@ func buy_item(item_name: String) -> bool:
 			return true
 	return false
 
-
-	
+func remove_from_inventory(item_name: String) -> void:
+	if inventory.has(item_name):
+		inventory.erase(item_name)
+		inventory_updated.emit()

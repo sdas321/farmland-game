@@ -694,6 +694,9 @@ size = Vector2(12, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a70kg"]
 size = Vector2(11.5, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1we5h"]
+size = Vector2(317, 143)
+
 [node name="Node2D" type="Node2D" unique_id=177891877]
 script = ExtResource("1_1we5h")
 
@@ -859,5 +862,15 @@ shape = SubResource("RectangleShape2D_gfw36")
 position = Vector2(664.25, 405)
 shape = SubResource("RectangleShape2D_a70kg")
 
+[node name="placement_zone" type="Area2D" parent="." unique_id=1623103996]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placement_zone" unique_id=471998734]
+position = Vector2(863.5, 439.5)
+shape = SubResource("RectangleShape2D_1we5h")
+
+[node name="FurnitureContainer" type="Node2D" parent="." unique_id=799517026]
+
 [connection signal="body_entered" from="house door inside" to="." method="_on_house_door_inside_body_entered"]
 [connection signal="input_event" from="house door inside" to="." method="_on_house_door_inside_input_event"]
+[connection signal="mouse_entered" from="placement_zone" to="." method="_on_placement_zone_mouse_entered"]
+[connection signal="mouse_exited" from="placement_zone" to="." method="_on_placement_zone_mouse_exited"]
