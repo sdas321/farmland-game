@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_kukqi"]
 [ext_resource type="FontFile" uid="uid://52amyn0vm1io" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin.otf" id="4_1s2dm"]
 [ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="5_88e76"]
+[ext_resource type="Texture2D" uid="uid://ba5se4ytxnse" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/sound icon.png" id="6_88e76"]
 [ext_resource type="FontFile" uid="uid://cdfjyv8tur2hq" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/Super Bouncer.ttf" id="6_knqa7"]
 [ext_resource type="Texture2D" uid="uid://cqu3ryy6sb05b" path="res://assets/game/Characters/Basic Charakter Spritesheet.png" id="7_71k7c"]
 
@@ -14,6 +15,9 @@ texture = ExtResource("1_myx47")
 [sub_resource type="AtlasTexture" id="AtlasTexture_7l7mv"]
 atlas = ExtResource("2_kukqi")
 region = Rect2(259, 180, 90, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knqa7"]
+atlas = ExtResource("6_88e76")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cmnsq"]
 atlas = ExtResource("7_71k7c")
@@ -37,12 +41,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5d2l8")
 
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1657334606]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 312.0
+offset_right = 1663.0
+offset_bottom = 662.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ColorRect" unique_id=24638781]
+layout_mode = 0
+offset_left = -437.0
+offset_top = 227.0
+offset_right = 10.0
+offset_bottom = 680.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ColorRect/ColorRect" unique_id=369824331]
+layout_mode = 0
+offset_left = 1345.0
+offset_top = 16.0
+offset_right = 1692.0
+offset_bottom = 469.0
+color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+
 [node name="TextureButton" type="TextureButton" parent="Panel" unique_id=1682886699]
 layout_mode = 1
-offset_left = 855.0
-offset_top = 670.0
-offset_right = 1489.0
-offset_bottom = 798.0
+offset_left = 863.0
+offset_top = 528.0
+offset_right = 1497.0
+offset_bottom = 656.0
 texture_normal = SubResource("AtlasTexture_7l7mv")
 stretch_mode = 0
 
@@ -59,10 +87,10 @@ text = "PLAY"
 
 [node name="TextureButton2" type="TextureButton" parent="Panel" unique_id=1358389882]
 layout_mode = 1
-offset_left = 851.0
-offset_top = 891.0
-offset_right = 1485.0
-offset_bottom = 1019.0
+offset_left = 868.0
+offset_top = 725.0
+offset_right = 1502.0
+offset_bottom = 853.0
 texture_normal = SubResource("AtlasTexture_7l7mv")
 stretch_mode = 0
 
@@ -77,36 +105,22 @@ theme_override_fonts/font = ExtResource("5_88e76")
 theme_override_font_sizes/font_size = 82
 text = "QUIT "
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1657334606]
+[node name="TextureButton" type="TextureButton" parent="Panel/TextureButton2" unique_id=776833928]
 layout_mode = 0
-offset_left = 734.0
-offset_top = 367.0
-offset_right = 1664.0
-offset_bottom = 570.0
-color = Color(0.3647059, 0.17254902, 0.09019608, 1)
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=24638781]
-layout_mode = 0
-offset_left = -437.0
-offset_top = 227.0
-offset_right = 10.0
-offset_bottom = 680.0
-color = Color(0.3647059, 0.17254902, 0.09019608, 1)
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect" unique_id=369824331]
-layout_mode = 0
-offset_left = 1344.0
-offset_top = -21.0
-offset_right = 1691.0
-offset_bottom = 432.0
-color = Color(0.3647059, 0.17254902, 0.09019608, 1)
+offset_left = -55.0
+offset_top = 137.0
+offset_right = 47.5
+offset_bottom = 238.5
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_knqa7")
+stretch_mode = 0
 
 [node name="tite" type="Label" parent="." unique_id=1652549320]
 layout_mode = 0
-offset_left = 696.0
-offset_top = 404.0
-offset_right = 1661.0
-offset_bottom = 668.0
+offset_left = 714.0
+offset_top = 300.0
+offset_right = 2162.0
+offset_bottom = 574.0
 theme_override_colors/font_color = Color(1, 1, 0.34509805, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_knqa7")

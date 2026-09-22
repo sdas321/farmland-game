@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ce75eqj3jf54o" path="res://scenes/time.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b3kktp7ey2w06" path="res://scenes/characters/plants/crop.tscn" id="12_kvuet"]
 [ext_resource type="Script" uid="uid://c5y06n6m70sw4" path="res://scripts/marketcanvas.gd" id="14_ir15t"]
+[ext_resource type="Script" uid="uid://y7df25mdqkil" path="res://scripts/tiiiiiime.gd" id="14_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="15_264po"]
+[ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="16_1kice"]
+[ext_resource type="Texture2D" uid="uid://cru0hob1f8731" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/emojis-free/emoji style ui/Inventory_Spritesheet.png" id="18_ssvqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvuet"]
 texture = ExtResource("1_gee14")
@@ -680,6 +684,14 @@ texture = ExtResource("7_trtic")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_264po")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5newe"]
+atlas = ExtResource("15_264po")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37s47"]
+atlas = ExtResource("15_264po")
+region = Rect2(259, 180, 90, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
 size = Vector2(12, 18)
 
@@ -689,6 +701,10 @@ size = Vector2(11, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
 size = Vector2(199.5, 120)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("18_ssvqc")
+region = Rect2(329, 121, 30, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
 size = Vector2(165.5, 180)
 
@@ -696,6 +712,9 @@ size = Vector2(165.5, 180)
 position = Vector2(0, -2)
 script = ExtResource("1_0tnpc")
 spawn_point = NodePath("Marker2D")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=584194809]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2074540043]
 
@@ -767,6 +786,48 @@ follow_viewport_enabled = true
 follow_viewport_scale = 0.001
 
 [node name="CanvasLayer" parent="Clock" unique_id=674275996 instance=ExtResource("11_kvpfn")]
+
+[node name="Node" type="Node" parent="Clock/CanvasLayer" unique_id=573216475]
+script = ExtResource("14_ssvqc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Clock/CanvasLayer/Node" unique_id=1716537651]
+offset_right = 538.0
+offset_bottom = 237.0
+texture = SubResource("AtlasTexture_5newe")
+region_rect = Rect2(0.25243378, 0, 25.747566, 28)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="time2" type="TextureRect" parent="Clock/CanvasLayer/Node" unique_id=944779990]
+offset_left = 74.0
+offset_top = 22.0
+offset_right = 468.0
+offset_bottom = 126.0
+texture = SubResource("AtlasTexture_37s47")
+
+[node name="time_label" type="Label" parent="Clock/CanvasLayer/Node/time2" unique_id=1199403919]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 11.0
+offset_right = 284.0
+offset_bottom = 83.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("16_1kice")
+theme_override_font_sizes/font_size = 47
+text = "00:00"
+
+[node name="day_label" type="Label" parent="Clock/CanvasLayer/Node/time2" unique_id=1817412221]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 105.0
+offset_right = 263.0
+offset_bottom = 159.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("16_1kice")
+theme_override_font_sizes/font_size = 32
+text = "Day 0"
 
 [node name="wheat" type="Node" parent="." unique_id=1273910511]
 
@@ -850,6 +911,17 @@ shape = SubResource("RectangleShape2D_1kice")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fence_zone" unique_id=323703920]
 position = Vector2(511.25, 212)
 shape = SubResource("RectangleShape2D_trtic")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1422633887]
+offset_left = 1444.0
+offset_top = -84.0
+offset_right = 1554.0
+offset_bottom = 48.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_264po")
+stretch_mode = 0
 
 [node name="fence_zone2" type="Area2D" parent="." unique_id=208257391]
 

@@ -10,4 +10,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-#object koi ase check kore. area 2d er baire gele red hobe and bhitore thakle green tarpor place kora jabe. 
+#

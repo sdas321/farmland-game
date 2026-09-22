@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cfep7kxs6m833" path="res://scripts/time_cycle.gd" id="1_hxfg6"]
 [ext_resource type="Texture2D" uid="uid://dt8l54dbmso8i" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_4m821"]
+[ext_resource type="Script" uid="uid://kar8dhy03sdc" path="res://scripts/time_final.gd" id="2_k208v"]
 [ext_resource type="FontFile" uid="uid://cddj66ehjjsfo" path="res://assets/game/Sprout Lands - UI Pack - Basic pack 2/fonts/dunkin/Dunkin Sans.otf" id="3_k208v"]
+[ext_resource type="Gradient" uid="uid://dbulwgc8ffmta" path="res://gradient.tres" id="3_mbryc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbryc"]
 atlas = ExtResource("2_4m821")
@@ -15,7 +17,11 @@ region = Rect2(259, 180, 90, 25)
 [node name="clocks" type="CanvasLayer" unique_id=1576263515]
 script = ExtResource("1_hxfg6")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=917191617]
+[node name="ClockNode" type="Node" parent="." unique_id=690761509]
+script = ExtResource("2_k208v")
+color_gradient = ExtResource("3_mbryc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ClockNode" unique_id=917191617]
 offset_right = 538.0
 offset_bottom = 237.0
 texture = SubResource("AtlasTexture_mbryc")
@@ -25,24 +31,14 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 3
 
-[node name="day_label" type="Label" parent="." unique_id=1496077180]
-offset_left = 207.0
-offset_top = 127.0
-offset_right = 337.0
-offset_bottom = 181.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_k208v")
-theme_override_font_sizes/font_size = 32
-text = "Day 0"
-
-[node name="time2" type="TextureRect" parent="." unique_id=1649996482]
+[node name="time2" type="TextureRect" parent="ClockNode" unique_id=1649996482]
 offset_left = 74.0
 offset_top = 22.0
 offset_right = 468.0
 offset_bottom = 126.0
 texture = SubResource("AtlasTexture_vnfmb")
 
-[node name="time_label" type="Label" parent="time2" unique_id=1079432835]
+[node name="time_label" type="Label" parent="ClockNode/time2" unique_id=1079432835]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 11.0
@@ -52,3 +48,14 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_k208v")
 theme_override_font_sizes/font_size = 47
 text = "00:00"
+
+[node name="day_label" type="Label" parent="ClockNode/time2" unique_id=1496077180]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 105.0
+offset_right = 263.0
+offset_bottom = 159.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_k208v")
+theme_override_font_sizes/font_size = 32
+text = "Day 0"

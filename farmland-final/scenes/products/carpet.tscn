@@ -8,5 +8,9 @@ atlas = ExtResource("1_dv3p6")
 region = Rect2(116, 82, 24, 13)
 
 [node name="Carpet" type="TextureRect" unique_id=1549897007]
+offset_left = -12.0
+offset_top = -6.0
+offset_right = 12.0
+offset_bottom = 7.0
 texture = SubResource("AtlasTexture_dv3p6")
 script = ExtResource("2_lwxpc")

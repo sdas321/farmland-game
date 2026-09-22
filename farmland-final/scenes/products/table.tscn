@@ -8,5 +8,9 @@ atlas = ExtResource("1_p5ylc")
 region = Rect2(49, 48.63452, 14, 14.3654785)
 
 [node name="Table" type="TextureRect" unique_id=90012460]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
 texture = SubResource("AtlasTexture_p5ylc")
 script = ExtResource("2_76ums")

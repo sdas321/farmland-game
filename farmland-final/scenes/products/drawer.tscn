@@ -8,5 +8,9 @@ atlas = ExtResource("1_clav8")
 region = Rect2(49, 32, 14, 16.341496)
 
 [node name="Drawer" type="TextureRect" unique_id=1966076364]
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 7.0
+offset_bottom = 8.0
 texture = SubResource("AtlasTexture_clav8")
 script = ExtResource("2_6148s")

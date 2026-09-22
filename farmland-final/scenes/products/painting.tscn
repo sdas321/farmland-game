@@ -8,5 +8,9 @@ atlas = ExtResource("1_xf8oi")
 region = Rect2(35, 5, 12, 8)
 
 [node name="Painting" type="TextureRect" unique_id=1211941177]
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 4.0
 texture = SubResource("AtlasTexture_xf8oi")
 script = ExtResource("2_km1bt")

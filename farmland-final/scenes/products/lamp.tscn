@@ -8,5 +8,9 @@ atlas = ExtResource("1_s0e3d")
 region = Rect2(83, 16, 10, 11)
 
 [node name="Lamp" type="TextureRect" unique_id=1632105935]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 6.0
 texture = SubResource("AtlasTexture_s0e3d")
 script = ExtResource("2_rh7tn")

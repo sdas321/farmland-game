@@ -8,5 +8,9 @@ atlas = ExtResource("2_m42uq")
 region = Rect2(33, 26, 14, 22)
 
 [node name="Bed" type="TextureRect" unique_id=1825924348]
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 7.0
+offset_bottom = 11.0
 texture = SubResource("AtlasTexture_wp462")
 script = ExtResource("1_wp462")

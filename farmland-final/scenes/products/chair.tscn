@@ -8,5 +8,9 @@ atlas = ExtResource("1_a4m1u")
 region = Rect2(67, 33, 10, 13)
 
 [node name="Chait" type="TextureRect" unique_id=1770056079]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 6.0
 texture = SubResource("AtlasTexture_a4m1u")
 script = ExtResource("2_i0ohq")
