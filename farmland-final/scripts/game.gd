@@ -1,4 +1,5 @@
 extends Node2D
+@onready var game_music: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal game_time_updated(hour: int, minute: int, day: int)
 
@@ -36,6 +37,7 @@ var balloon_scene = preload("res://scenes/balloon.tscn")
 # the scene loads. It sets the starting time, restores the player's position,
 # starts the tutorial once, reloads previously placed animals and updates the time display.
 func _ready() -> void:
+	game_music.play()
 	if Global.game_seconds == 0.0 and Global.current_day == 1:
 		Global.game_seconds = 21600.0
 

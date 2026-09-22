@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://c1glru2i1v6gn" path="res://scripts/products/cow.gd" id="14_yb6qj"]
 [ext_resource type="Script" uid="uid://hk6x7v51m4ox" path="res://scripts/products/chicken.gd" id="16_q8ffd"]
 [ext_resource type="Script" uid="uid://pm03s2hyaeg" path="res://scripts/coin_market_label.gd" id="18_yb6qj"]
+[ext_resource type="AudioStream" uid="uid://lij3ev3l5nhi" path="res://audio/button_press.ogg" id="21_w6idw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co8of"]
 texture = ExtResource("2_ygeob")
@@ -500,6 +501,9 @@ theme_override_fonts/font = ExtResource("6_q8ffd")
 theme_override_font_sizes/font_size = 10
 text = "Coins: 0"
 script = ExtResource("18_yb6qj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=621984246]
+stream = ExtResource("21_w6idw")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2/next" to="." method="_on_next_pressed"]

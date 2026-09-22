@@ -5,6 +5,7 @@ extends Control
 @onready var name_label: Label = %ItemNameLabel
 @onready var price_label: Label = %ItemPriceLabel
 @onready var toast = $Toast
+@onready var button_press: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var targetScroll = 0
 var index: int = 0
@@ -26,6 +27,7 @@ func _selection() -> void:
 # It updates the selected index, changes the visual highlight and smoothly scrolls
 # the product container so the newly selected item is displayed.
 func _on_previous_pressed() -> void:
+	button_press.play()
 	if index > 0:
 		var scrollValue = targetScroll - _scroll(-1)
 		index -= 1
@@ -36,6 +38,7 @@ func _on_previous_pressed() -> void:
 # The selection index, visual highlight and scroll position are updated together
 # so the interface stays centred on the newly selected product.
 func _on_next_pressed() -> void:
+	button_press.play()
 	if index < object_container.get_child_count() - 1:
 		var scrollValue = targetScroll + _scroll(1)
 		index += 1
@@ -106,6 +109,7 @@ func _tween_scroll(scrollValue) -> void:
 # When affordable, the cost is removed through Global and the purchased item is
 # added to the inventory so it can later be placed in the game.
 func _on_purchase_pressed() -> void:
+	button_press.play()
 	var children = object_container.get_children()
 
 	if children.size() == 0:
@@ -147,4 +151,5 @@ func _on_purchase_pressed() -> void:
 # Returns the player from the market to the main game scene when the close button
 # is pressed. This allows the player to continue playing after finishing shopping.
 func _on_close_button_pressed() -> void:
+	button_press.play()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
