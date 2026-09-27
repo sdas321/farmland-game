@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://dcex65paas0r2"]
 
-[ext_resource type="Script" uid="uid://h4gpk5opln74" path="res://scripts/game_with_house.gd" id="1_1we5h"]
 [ext_resource type="Script" uid="uid://d3bjik6pfnvaf" path="res://scripts/coin_label.gd" id="1_tmkjd"]
 [ext_resource type="Texture2D" uid="uid://dqaylosbuwfow" path="res://assets/game/Tilesets/water.png" id="2_1we5h"]
 [ext_resource type="Texture2D" uid="uid://gxf2j4pwd6ge" path="res://assets/game/Tilesets/grass.png" id="3_a70kg"]
@@ -13,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://80tlci14exu8" path="res://scenes/inventory.tscn" id="10_lx3jf"]
 [ext_resource type="PackedScene" uid="uid://ce75eqj3jf54o" path="res://scenes/time.tscn" id="11_ugqvk"]
 [ext_resource type="PackedScene" uid="uid://b3kktp7ey2w06" path="res://scenes/characters/plants/crop.tscn" id="12_f56c7"]
+
+[sub_resource type="GDScript" id="GDScript_tmkjd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pj1ti"]
 texture = ExtResource("2_1we5h")
@@ -698,7 +699,8 @@ size = Vector2(11.5, 16)
 size = Vector2(317, 143)
 
 [node name="Node2D" type="Node2D" unique_id=177891877]
-script = ExtResource("1_1we5h")
+visible = false
+script = SubResource("GDScript_tmkjd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1728352753]
 

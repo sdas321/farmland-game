@@ -5,49 +5,71 @@ extends Control
 @onready var name_label: Label = %ItemNameLabel
 @onready var price_label: Label = %ItemPriceLabel
 @onready var toast = $Toast
-@onready var button_press: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var close: AudioStreamPlayer2D = $close
+@onready var scroll: AudioStreamPlayer2D = $scroll
+@onready var success: AudioStreamPlayer2D = $success
+@onready var error: AudioStreamPlayer2D = $error
+@onready var musiccc: AudioStreamPlayer2D = $musiccc
 
-var targetScroll = 0
+
+# Controls the current market selection and scrolling position.
+# Keeping these values separately allows the selected product and its visual
+# position in the ScrollContainer to remain synchronised.
+var target_scroll: float = 0.0
 var index: int = 0
 
-# Starts the product selection system when the market scene loads.
-# The selection function waits briefly for the UI layout to initialise before
-# highlighting the first available product.
+
+# Starts the market selection system when the scene loads.
+# The short delay allows the product containers to finish their layout before
+# the first product is highlighted.
 func _ready() -> void:
 	_selection()
+	musiccc.play()
 
-# Waits for the market interface to finish positioning its child elements before
-# highlighting the current product. The short delay prevents the selection from
-# being calculated before the container has finished setting its layout.
+
+# Waits for the market interface to finish laying out its children before
+# highlighting the first available product. This prevents the initial highlight
+# from being calculated using incomplete UI dimensions.
 func _selection() -> void:
 	await get_tree().create_timer(0.01).timeout
 	_highlight()
 
-# Moves the selected product one position to the left when possible.
-# It updates the selected index, changes the visual highlight and smoothly scrolls
-# the product container so the newly selected item is displayed.
+
+# Moves the selected product one position backwards when the first product
+# has not already been reached. The selection and scroll position are updated
+# together so the visual interface remains synchronised.
 func _on_previous_pressed() -> void:
-	button_press.play()
-	if index > 0:
-		var scrollValue = targetScroll - _scroll(-1)
-		index -= 1
-		_highlight()
-		await _tween_scroll(scrollValue)
+	if index <= 0:
+		return
 
-# Moves the selected product one position to the right when possible.
-# The selection index, visual highlight and scroll position are updated together
-# so the interface stays centred on the newly selected product.
+	var scroll_value := target_scroll - _scroll(-1)
+
+	index -= 1
+	_highlight()
+
+	await _tween_scroll(scroll_value)
+	scroll.play()
+
+
+# Moves the selected product one position forwards when the final product has
+# not already been reached. The selected product is highlighted before the
+# ScrollContainer smoothly moves to its new position.
 func _on_next_pressed() -> void:
-	button_press.play()
-	if index < object_container.get_child_count() - 1:
-		var scrollValue = targetScroll + _scroll(1)
-		index += 1
-		_highlight()
-		await _tween_scroll(scrollValue)
+	if index >= object_container.get_child_count() - 1:
+		return
 
-# Calculates the horizontal distance required to move between two products.
-# It uses the widths of the current and next objects plus the container spacing
-# so the scrolling movement accounts for different product sizes.
+	var scroll_value := target_scroll + _scroll(1)
+
+	index += 1
+	_highlight()
+
+	await _tween_scroll(scroll_value)
+	scroll.play()
+
+
+# Calculates the horizontal distance required to move from the current product
+# to the neighbouring product. The calculation uses both product widths and the
+# container separation so the selected product is positioned correctly.
 func _scroll(direction: int) -> float:
 	var separation = object_container.get_theme_constant("separation")
 	var children = object_container.get_children()
@@ -58,59 +80,59 @@ func _scroll(direction: int) -> float:
 	var next_half_width = next_obj.size.x / 2.0
 
 	return current_half_width + separation + next_half_width
+	
 
-# Calculates the space occupied by the current product and the container separation.
-# The checks prevent the function from attempting to access children when there are
-# not enough products available.
+# Calculates the space occupied by the currently selected product and the
+# container separation. It returns zero when the container does not contain
+# enough children for the calculation.
 func _get_space_between() -> int:
-	if object_container.get_child_count() < 1:
-		return 0
-
-	var distanceSize = object_container.get_theme_constant("separation")
-
 	if object_container.get_child_count() < 2:
 		return 0
 
-	var objectSize = object_container.get_children()[index].size.x
+	var distance_size := object_container.get_theme_constant("separation")
+	var object_size :float = object_container.get_children()[index].size.x
 
-	return distanceSize + objectSize
+	return distance_size + object_size
 
-# Changes the appearance of the products so that the currently selected item is
-# clearly distinguished from the other products. This allows the player to see
-# which product will be affected by the purchase button.
+
+# Highlights the currently selected product and darkens the other products.
+# This provides clear visual feedback about which item will be purchased when
+# the player presses the purchase button.
 func _highlight() -> void:
-	var children = object_container.get_children()
+	var children := object_container.get_children()
 
 	for i in range(children.size()):
 		var object = children[i]
 
-		if object is not TextureRect:
+		if not object is TextureRect:
 			continue
 
 		if i == index:
 			object.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		else:
-			object.modulate = Color(0, 0, 0, 1)
+			object.modulate = Color(0.0, 0.0, 0.0, 1.0)
 
-# Smoothly moves the ScrollContainer to the requested horizontal position instead
-# of instantly changing it. The function waits for the tween to finish before
-# allowing the next frame of UI processing to continue.
-func _tween_scroll(scrollValue) -> void:
-	targetScroll = scrollValue
 
-	var tween = get_tree().create_tween()
-	tween.tween_property(scroll_container, "scroll_horizontal", scrollValue, 0.25)
+# Smoothly moves the ScrollContainer towards the requested horizontal position.
+# Waiting for the tween and the next process frame allows the animation to finish
+# cleanly before another market selection is processed.
+func _tween_scroll(scroll_value: float) -> void:
+	target_scroll = scroll_value
+
+	var tween := get_tree().create_tween()
+
+	tween.tween_property(scroll_container,"scroll_horizontal",scroll_value,0.25)
 
 	await tween.finished
 	await get_tree().process_frame
 
-# Processes a purchase for the currently selected product by finding the valid
-# product containers, retrieving its cost and name, and checking the player's coins.
-# When affordable, the cost is removed through Global and the purchased item is
-# added to the inventory so it can later be placed in the game.
+
+# Checks the currently selected product and attempts to purchase it.
+# The player's coins are only changed after confirming that the product is valid
+# and affordable, and the success notification is only displayed after purchase.
 func _on_purchase_pressed() -> void:
-	button_press.play()
-	var children = object_container.get_children()
+	var children := object_container.get_children()
+
 
 	if children.size() == 0:
 		return
@@ -126,10 +148,6 @@ func _on_purchase_pressed() -> void:
 	if valid_items.size() == 0 or index >= valid_items.size():
 		return
 
-	Toast.show_toast("Purchased!", 2.0)
-
-	print(index)
-
 	var active_node = valid_items[index]
 	var active_product = active_node
 
@@ -141,15 +159,24 @@ func _on_purchase_pressed() -> void:
 
 	if item_name == null:
 		item_name = active_product.name.to_lower()
+	if cost == null:
+		return
 
-	if cost != null:
-		if Global.coins >= cost:
-			Global.purchase(cost)
-			Global.add_to_inventory(item_name)
-			print("Purchased: ", item_name)
+	if Global.coins >= cost:
+		Global.purchase(cost)
+		Global.add_to_inventory(item_name)
 
-# Returns the player from the market to the main game scene when the close button
-# is pressed. This allows the player to continue playing after finishing shopping.
+		Toast.show_toast(Global.PURCHASE_SUCCESS_MESSAGE, 2.0)
+		success.play()
+
+	else:
+		Toast.show_toast(Global.NOT_ENOUGH_COINS_MESSAGE,2.0)
+		error.play()
+
+
+
+# Returns the player from the market to the main game scene.
+# Inventory and purchased items remain stored in Global, so returning to the
+# main scene does not remove any progress made inside the market.
 func _on_close_button_pressed() -> void:
-	button_press.play()
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file(Global.GAME_SCENE)

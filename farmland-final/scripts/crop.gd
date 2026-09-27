@@ -6,6 +6,7 @@ extends Area2D
 @export var coins: int = 10000
 @export var max_water: float = 100.0
 @export var water_speed: float = 50.0
+@onready var water: AudioStreamPlayer2D = $water
 
 var crop_id: String = ""
 var current_water: float = 0.0
@@ -29,8 +30,8 @@ func _ready() -> void:
 	mouse_exited.connect(self._on_mouse_exited)
 
 	if Global.plant_data.has(crop_id):
-		current_water = Global.plant_data[crop_id].get("current_water", 0.0)
-		is_grown = Global.plant_data[crop_id].get("is_grown", false)
+		current_water = Global.plant_data[crop_id].get(Global.DATA_CURRENT_WATER, 0.0)
+		is_grown = Global.plant_data[crop_id].get(Global.DATA_IS_GROWN, false)
 		growing()
 	else:
 		default()
@@ -43,7 +44,7 @@ func _ready() -> void:
 func default() -> void:
 	is_grown = false
 	current_water = 0.0
-	
+
 	if progress_bar:
 		progress_bar.value = 0
 		progress_bar.max_value = max_water
@@ -79,8 +80,8 @@ func growing() -> void:
 # its own saved progress and return to the same state after changing scenes.
 func save_crop_state() -> void:
 	Global.plant_data[crop_id] = {
-		"current_water": current_water,
-		"is_grown": is_grown
+		Global.DATA_CURRENT_WATER: current_water,
+		Global.DATA_IS_GROWN: is_grown
 	}
 
 
@@ -101,7 +102,7 @@ func _process(delta: float) -> void:
 		return
 
 	if is_mouse_inside and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if Global.selected_item == "watering_can":
+		if Global.selected_item == Global.ITEM_WATERING_CAN:
 			water_crop(delta)
 
 
@@ -133,13 +134,13 @@ func water_crop(delta: float) -> void:
 			progress_bar.visible = false
 
 	save_crop_state()
-
+	water.play()
 
 # Detects when another body enters the crop's Area2D and checks whether the crop
 # is fully grown and the entering body is the player. If both conditions are met,
 # the collection function is called so the player receives the crop's reward.
 func _on_body_entered(body: Node2D) -> void:
-	if is_grown and "player" in body.name.to_lower():
+	if is_grown and Global.PLAYER_GROUP in body.get_groups():
 		collection()
 
 

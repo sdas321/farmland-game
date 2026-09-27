@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://30og3blml7vq" path="res://scripts/crop.gd" id="1_kdi87"]
 [ext_resource type="Texture2D" uid="uid://uxsrou8cq3hc" path="res://assets/game/Objects/basic_plants.png" id="2_xjw3h"]
+[ext_resource type="AudioStream" uid="uid://dt725kcakhffd" path="res://audio/watering.ogg" id="3_xjw3h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2dbbp"]
 radius = 12.0
@@ -75,6 +76,9 @@ theme_override_font_sizes/font_size = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_kdi87")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xjw3h")
 show_percentage = false
+
+[node name="water" type="AudioStreamPlayer2D" parent="." unique_id=637620502]
+stream = ExtResource("3_xjw3h")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

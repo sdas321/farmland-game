@@ -21,6 +21,10 @@
 [ext_resource type="Script" uid="uid://hk6x7v51m4ox" path="res://scripts/products/chicken.gd" id="16_q8ffd"]
 [ext_resource type="Script" uid="uid://pm03s2hyaeg" path="res://scripts/coin_market_label.gd" id="18_yb6qj"]
 [ext_resource type="AudioStream" uid="uid://lij3ev3l5nhi" path="res://audio/button_press.ogg" id="21_w6idw"]
+[ext_resource type="AudioStream" uid="uid://cfr2k65cr6pg4" path="res://audio/close.ogg" id="21_yuhdm"]
+[ext_resource type="AudioStream" uid="uid://dto28n5kui2o0" path="res://audio/purchase.ogg" id="23_q1gjl"]
+[ext_resource type="AudioStream" uid="uid://d4lbfc0uh0elp" path="res://audio/error.ogg" id="24_osrly"]
+[ext_resource type="AudioStream" uid="uid://d332ogu3twn02" path="res://audio/market.ogg" id="25_q1gjl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_co8of"]
 texture = ExtResource("2_ygeob")
@@ -502,8 +506,21 @@ theme_override_font_sizes/font_size = 10
 text = "Coins: 0"
 script = ExtResource("18_yb6qj")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=621984246]
+[node name="close" type="AudioStreamPlayer2D" parent="." unique_id=621984246]
+stream = ExtResource("21_yuhdm")
+
+[node name="scroll" type="AudioStreamPlayer2D" parent="." unique_id=1350681666]
 stream = ExtResource("21_w6idw")
+
+[node name="success" type="AudioStreamPlayer2D" parent="." unique_id=476092389]
+stream = ExtResource("23_q1gjl")
+
+[node name="error" type="AudioStreamPlayer2D" parent="." unique_id=476584004]
+stream = ExtResource("24_osrly")
+
+[node name="musiccc" type="AudioStreamPlayer2D" parent="." unique_id=1761040778]
+stream = ExtResource("25_q1gjl")
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/previous" to="." method="_on_previous_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect2/next" to="." method="_on_next_pressed"]

@@ -157,7 +157,7 @@ text = "FARMLAND"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1959665931]
 stream = ExtResource("5_8ln24")
-volume_db = -10.0
+volume_db = 10.411
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="how to play" to="." method="_on_how_to_play_pressed"]
