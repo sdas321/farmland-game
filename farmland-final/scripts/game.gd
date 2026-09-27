@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 
 	if Global.game_seconds >= SECONDS_PER_DAY:
 		Global.game_seconds -= SECONDS_PER_DAY
-
+		Global.current_day += 1
 	_process_time()
 
 	if Input.is_action_just_pressed(Global.INPUT_PAUSE):
@@ -120,11 +120,9 @@ func _on_music_button_pressed() -> void:
 	if music_player.playing:
 		music_player.stop()
 		music_button.texture_normal = preload("res://extra/off_icon.png")
-		print("hi")
 	else:
 		music_player.play()
 		music_button.texture_normal = preload("res://extra/on_icon.png")
-		print("bye")
 
 # Fades the screen to black, advances to the next day, resets the clock to 6 AM,
 # displays the new day number, and then gradually fades the game back in.
