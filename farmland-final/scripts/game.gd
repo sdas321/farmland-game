@@ -1,48 +1,15 @@
 extends Node2D
 
 signal game_time_updated(hour: int, minute: int, day: int)
+
+const SECONDS_PER_DAY: float = 86400.0
+const STARTING_TIME_SECONDS: float = 21600.0
+const PLACEMENT_FURNITURE := "furniture"
+const PLACEMENT_ANIMAL := "animal"
 const NIGHT_COLOR := Color(0.15, 0.15, 0.4)
 const SUNRISE_COLOR := Color(0.9, 0.4, 0.5)
 const DAY_COLOR := Color(1.0, 1.0, 1.0)
 const SUNSET_COLOR := Color(1.0, 0.6, 0.3)
-
-@export var time_speed_multiplier: float = 1500.0
-@export var spawn_point: Marker2D
-@export var dialogue_resource: Resource
-@export var dialogue = preload("res://tutorial.dialogue")
-@onready var placement: AudioStreamPlayer2D = $placement
-@onready var day_transition: CanvasLayer = $DayTransition
-@onready var day_fade: ColorRect = $DayTransition/Fade
-@onready var day_label: Label = $DayTransition/Fade/DayLabel
-
-@onready var player: CharacterBody2D = %player
-@onready var animal_container: Node2D = $AnimalContainer
-@onready var furniture_container: Node2D = $FurnitureContainer
-@onready var canvas_modulate: CanvasModulate = $CanvasModulate
-@onready var pause_menu: Control = $PauseLayer/PauseMenu
-@onready var music_button: TextureButton = $"music/Music button"
-@onready var music_player: AudioStreamPlayer2D = $"music/music player"
-
-
-
-
-
-var ghost: Sprite2D = null
-var current_item_name: String = ""
-var can_place: bool = false
-var placement_type: String = ""
-var mouse_over_placement_zone: bool = false
-var mouse_over_fence_zone: bool = false
-var mouse_over_fence_zone_2: bool = false
-var transitioning_day: bool = false
-
-const SECONDS_PER_DAY: float = 86400.0
-const STARTING_TIME_SECONDS: float = 21600.0
-
-const PLACEMENT_FURNITURE := "furniture"
-const PLACEMENT_ANIMAL := "animal"
-
-
 const FURNITURE_SCENES: Dictionary = {
 	Global.ITEM_BED: preload("res://scenes/products/bed.tscn"),
 	Global.ITEM_CARPET: preload("res://scenes/products/carpet.tscn"),
@@ -53,13 +20,36 @@ const FURNITURE_SCENES: Dictionary = {
 	Global.ITEM_PAINTING: preload("res://scenes/products/painting.tscn"),
 	Global.ITEM_TABLE: preload("res://scenes/products/table.tscn")
 }
-
-
 const ANIMAL_SCENES: Dictionary = {
 	Global.ITEM_CHICKEN: preload("res://scenes/products/chicken.tscn"),
 	Global.ITEM_COW: preload("res://scenes/products/cow.tscn")
 }
 
+@export var time_speed_multiplier: float = 1500.0
+@export var spawn_point: Marker2D
+@export var dialogue_resource: Resource
+@export var dialogue = preload("res://tutorial.dialogue")
+
+var ghost: Sprite2D = null
+var current_item_name: String = ""
+var can_place: bool = false
+var placement_type: String = ""
+var mouse_over_placement_zone: bool = false
+var mouse_over_fence_zone: bool = false
+var mouse_over_fence_zone_2: bool = false
+var transitioning_day: bool = false
+
+@onready var placement: AudioStreamPlayer2D = $placement
+@onready var day_transition: CanvasLayer = $DayTransition
+@onready var day_fade: ColorRect = $DayTransition/Fade
+@onready var day_label: Label = $DayTransition/Fade/DayLabel
+@onready var player: CharacterBody2D = %player
+@onready var animal_container: Node2D = $AnimalContainer
+@onready var furniture_container: Node2D = $FurnitureContainer
+@onready var canvas_modulate: CanvasModulate = $CanvasModulate
+@onready var pause_menu: Control = $PauseLayer/PauseMenu
+@onready var music_button: TextureButton = $"music/Music button"
+@onready var music_player: AudioStreamPlayer2D = $"music/music player"
 
 # Sets up the game when the scene starts.
 # It restores the saved game state, loads placed animals and furniture,
@@ -80,7 +70,6 @@ func _ready() -> void:
 	_load_furniture()
 	_process_time()
 	music_player.play()
-
 
 # Updates the game clock and handles pause input every frame.
 # It also moves and changes the colour of the placement ghost while an item is being placed.
@@ -103,7 +92,6 @@ func _process(delta: float) -> void:
 		else:
 			ghost.modulate = Color(1.0, 0.3, 0.3, 0.6)
 
-
 # Pauses or unpauses the game and displays the pause menu.
 # The current pause state is reversed whenever the pause input is pressed.
 func _pause() -> void:
@@ -112,7 +100,6 @@ func _pause() -> void:
 
 	if pause_menu:
 		pause_menu.visible = new_pause
-
 
 # Toggles the gameplay music on or off when the music button is pressed.
 # The button changes its icon so the player can see whether music is currently enabled.
@@ -212,7 +199,6 @@ func start_placement(item_name: String, item_texture: Texture2D) -> void:
 
 	_update_can_place()
 
-
 # Handles mouse input while an item is being placed.
 # A left click places the item if the mouse is inside a valid zone,
 # while a right click cancels the current placement.
@@ -229,7 +215,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	elif event.is_action_pressed(Global.INPUT_RIGHT_CLICK):
 		_cancel_placement()
-
 
 # Determines whether the selected item can currently be placed.
 # Furniture uses the house placement zone, while animals use either fence zone.
@@ -274,7 +259,6 @@ func _place_item() -> void:
 	Global.remove_from_inventory(current_item_name)
 	_cancel_placement()
 
-
 # Creates a furniture scene at the specified position.
 # The furniture is added to FurnitureContainer so all placed furniture stays organised.
 func _spawn_furniture(item_name: String, position: Vector2) -> void:
@@ -290,7 +274,6 @@ func _spawn_furniture(item_name: String, position: Vector2) -> void:
 		furniture_container.add_child(furniture)
 	else:
 		add_child(furniture)
-
 
 # Creates an animal scene at the specified position.
 # The animal is added to AnimalContainer so all placed animals stay organised.
@@ -308,7 +291,6 @@ func _spawn_animal(item_name: String, position: Vector2) -> void:
 	else:
 		add_child(animal)
 
-
 # Loads all animals that were previously placed in the game.
 # Their saved names and positions are used to recreate them when the scene starts.
 func _load_animals() -> void:
@@ -318,7 +300,6 @@ func _load_animals() -> void:
 
 		_spawn_animal(item_name, position)
 
-
 # Loads all furniture that was previously placed in the game.
 # Their saved names and positions are used to recreate them when the scene starts.
 func _load_furniture() -> void:
@@ -327,7 +308,6 @@ func _load_furniture() -> void:
 		var position: Vector2 = item_data[Global.DATA_POSITION]
 
 		_spawn_furniture(item_name, position)
-
 
 # Cancels the current placement and removes the ghost.
 # It also clears the selected item and resets the placement state.
@@ -340,14 +320,12 @@ func _cancel_placement() -> void:
 	placement_type = ""
 	can_place = false
 
-
 # Handles the player leaving the playable map boundaries.
 # The player is returned to the spawn point and the current scene is reloaded.
 func _on_boundaries_body_entered(body: Node2D) -> void:
 	if body.is_in_group(Global.PLAYER_GROUP):
 		body.global_position = spawn_point.global_position
 		get_tree().reload_current_scene()
-
 
 # Handles the player entering the market door.
 # The player's position is saved before changing to the separate market scene.
@@ -358,40 +336,29 @@ func _on_market_door_body_entered(body: Node2D) -> void:
 
 		get_tree().change_scene_to_file(Global.MARKET_SCENE)
 
-
 # Records that the mouse has entered the furniture placement area.
 # The placement state is recalculated so furniture can immediately become placeable.
 func _on_house_2_mouse_entered() -> void:
 	mouse_over_placement_zone = true
 	_update_can_place()
-	print("hi")
-
-
 
 # Records that the mouse has left the furniture placement area.
 # The placement state is recalculated so furniture can no longer be placed there.
 func _on_house_2_mouse_exited() -> void:
 	mouse_over_placement_zone = false
 	_update_can_place()
-	print("bye")
 
 # Records that the mouse has entered the first animal fence.
 # The placement state is recalculated so animals can be placed inside the fence.
 func _on_fence_zone_mouse_entered() -> void:
 	mouse_over_fence_zone = true
 	_update_can_place()
-	print("hello")
-
-
 
 # Records that the mouse has left the first animal fence.
 # The placement state is recalculated so animals cannot be placed outside the fence.
 func _on_fence_zone_mouse_exited() -> void:
 	mouse_over_fence_zone = false
 	_update_can_place()
-	print("bello")
-
-
 
 # Records that the mouse has entered the second animal fence.
 # The placement state is recalculated so animals can be placed inside the fence.
@@ -399,79 +366,8 @@ func _on_fence_zone_2_mouse_entered() -> void:
 	mouse_over_fence_zone_2 = true
 	_update_can_place()
 
-
-
-
 # Records that the mouse has left the second animal fence.
 # The placement state is recalculated so animals cannot be placed outside the fence.
 func _on_fence_zone_2_mouse_exited() -> void:
 	mouse_over_fence_zone_2 = false
 	_update_can_place()
-
-
-# Checks the player's final objectives when the game reaches the final day.
-# The player receives the successful ending only if they have both purchased/placed everything and reached $10,000.
-func _check_final_objective() -> void:
-	if Global.current_day < Global.FINAL_DAY:
-		return
-
-	var has_all_products: bool = Global.has_purchased_all_products()
-	var has_enough_money: bool = Global.coins >= Global.MONEY_GOAL
-
-	if has_all_products and has_enough_money:
-		_start_good_ending()
-	else:
-		_start_bad_ending()
-		
-		
-# Displays the ending text one line at a time with a two-second delay between lines.
-# The text itself can be replaced later without changing the animation system.
-func _play_ending_text(lines: Array[String]) -> void:
-	var labels := [
-		$EndingLayer/Background/line,
-		$EndingLayer/Background/line2,
-		$EndingLayer/Background/line3
-	]
-
-	for i in range(min(lines.size(), labels.size())):
-		var label: Label = labels[i]
-		label.text = lines[i]
-		label.modulate.a = 0.0
-		label.visible = true
-
-		var tween := create_tween()
-		tween.tween_property(label, "modulate:a", 1.0, 1.0)
-
-		await get_tree().create_timer(2.0).timeout
-		
-# Starts the successful ending sequence after the player completes both final objectives.
-# The screen fades to black before the ending text begins.
-func _start_good_ending() -> void:
-	var fade := create_tween()
-	fade.tween_property($EndingLayer/Background, "color:a", 1.0, 2.0)
-	await fade.finished
-
-	await get_tree().create_timer(1.0).timeout
-
-	await _play_ending_text([
-		"YOUR TEXT HERE",
-		"YOUR TEXT HERE",
-		"YOUR TEXT HERE",
-		"YOUR TEXT HERE"
-	])
-	
-# Starts the unsuccessful ending sequence when the player has not completed the final objectives.
-# The same gradual text animation is used so both endings feel like part of the same final sequence.
-func _start_bad_ending() -> void:
-	var fade := create_tween()
-	fade.tween_property($EndingLayer/Background, "color:a", 1.0, 2.0)
-	await fade.finished
-
-	await get_tree().create_timer(1.0).timeout
-
-	await _play_ending_text([
-		"YOUR BAD ENDING TEXT",
-		"YOUR BAD ENDING TEXT",
-		"YOUR BAD ENDING TEXT",
-		"YOUR BAD ENDING TEXT"
-	])

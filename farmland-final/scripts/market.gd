@@ -1,5 +1,8 @@
 extends Control
 
+var target_scroll: float = 0.0
+var index: int = 0
+
 @onready var object_container: HBoxContainer = %objects
 @onready var scroll_container: ScrollContainer = %ScrollContainer
 @onready var name_label: Label = %ItemNameLabel
@@ -11,14 +14,6 @@ extends Control
 @onready var error: AudioStreamPlayer2D = $error
 @onready var musiccc: AudioStreamPlayer2D = $musiccc
 
-
-# Controls the current market selection and scrolling position.
-# Keeping these values separately allows the selected product and its visual
-# position in the ScrollContainer to remain synchronised.
-var target_scroll: float = 0.0
-var index: int = 0
-
-
 # Starts the market selection system when the scene loads.
 # The short delay allows the product containers to finish their layout before
 # the first product is highlighted.
@@ -26,14 +21,12 @@ func _ready() -> void:
 	_selection()
 	musiccc.play()
 
-
 # Waits for the market interface to finish laying out its children before
 # highlighting the first available product. This prevents the initial highlight
 # from being calculated using incomplete UI dimensions.
 func _selection() -> void:
 	await get_tree().create_timer(0.01).timeout
 	_highlight()
-
 
 # Moves the selected product one position backwards when the first product
 # has not already been reached. The selection and scroll position are updated
@@ -50,7 +43,6 @@ func _on_previous_pressed() -> void:
 	await _tween_scroll(scroll_value)
 	scroll.play()
 
-
 # Moves the selected product one position forwards when the final product has
 # not already been reached. The selected product is highlighted before the
 # ScrollContainer smoothly moves to its new position.
@@ -66,7 +58,6 @@ func _on_next_pressed() -> void:
 	await _tween_scroll(scroll_value)
 	scroll.play()
 
-
 # Calculates the horizontal distance required to move from the current product
 # to the neighbouring product. The calculation uses both product widths and the
 # container separation so the selected product is positioned correctly.
@@ -81,7 +72,6 @@ func _scroll(direction: int) -> float:
 
 	return current_half_width + separation + next_half_width
 	
-
 # Calculates the space occupied by the currently selected product and the
 # container separation. It returns zero when the container does not contain
 # enough children for the calculation.
@@ -93,7 +83,6 @@ func _get_space_between() -> int:
 	var object_size :float = object_container.get_children()[index].size.x
 
 	return distance_size + object_size
-
 
 # Highlights the currently selected product and darkens the other products.
 # This provides clear visual feedback about which item will be purchased when
@@ -112,7 +101,6 @@ func _highlight() -> void:
 		else:
 			object.modulate = Color(0.0, 0.0, 0.0, 1.0)
 
-
 # Smoothly moves the ScrollContainer towards the requested horizontal position.
 # Waiting for the tween and the next process frame allows the animation to finish
 # cleanly before another market selection is processed.
@@ -126,13 +114,11 @@ func _tween_scroll(scroll_value: float) -> void:
 	await tween.finished
 	await get_tree().process_frame
 
-
 # Checks the currently selected product and attempts to purchase it.
 # The player's coins are only changed after confirming that the product is valid
 # and affordable, and the success notification is only displayed after purchase.
 func _on_purchase_pressed() -> void:
 	var children := object_container.get_children()
-
 
 	if children.size() == 0:
 		return
@@ -172,8 +158,6 @@ func _on_purchase_pressed() -> void:
 	else:
 		Toast.show_toast(Global.NOT_ENOUGH_COINS_MESSAGE,2.0)
 		error.play()
-
-
 
 # Returns the player from the market to the main game scene.
 # Inventory and purchased items remain stored in Global, so returning to the

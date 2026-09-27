@@ -1,4 +1,5 @@
 extends Control
+
 @onready var close: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Handles the Home button by playing its button sound and changing the current

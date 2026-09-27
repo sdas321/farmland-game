@@ -1,5 +1,9 @@
 extends Node
 
+signal game_time(time: float)
+signal time_tick(day: int, hour: int, minute: int)
+signal time_tick_day(day: int)
+
 const minutes_day: int = 24 * 60
 const minutes_hour: int = 60
 const game_duration: float = TAU / minutes_day
@@ -11,10 +15,6 @@ var initial_minute: int = 30
 var time: float = 0.0
 var current_minute: int = -1
 var current_day: int = 0
-
-signal game_time(time: float)
-signal time_tick(day: int, hour: int, minute: int)
-signal time_tick_day(day: int)
 
 # Sets up the game's starting time when the time system is first loaded.
 # The starting day, hour and minute are converted into the internal time value

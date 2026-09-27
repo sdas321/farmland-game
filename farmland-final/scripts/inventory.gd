@@ -1,7 +1,5 @@
 extends PanelContainer
 
-@onready var slot: HBoxContainer = %HBoxContainer
-
 var products: Dictionary = {
 	Global.ITEM_BED: preload("res://scenes/products/bed.tscn"),
 	Global.ITEM_CARPET: preload("res://scenes/products/carpet.tscn"),
@@ -17,6 +15,7 @@ var products: Dictionary = {
 
 var item_textures: Dictionary = {}
 
+@onready var slot: HBoxContainer = %HBoxContainer
 
 # Gets the texture from each product scene so it can be displayed in the inventory.
 # The product may use either a Sprite2D or TextureRect, so both types are checked.
@@ -51,7 +50,6 @@ func _spawn_items() -> void:
 
 		instance.queue_free()
 
-
 # Sets up the inventory slot buttons so clicking a slot selects its item.
 # The slot index is passed into the click function so the correct inventory item is selected.
 func _slot_signals() -> void:
@@ -70,7 +68,6 @@ func _slot_signals() -> void:
 			slot_button.pressed.connect(
 				_on_inventory_slot_pressed.bind(i)
 			)
-
 
 # Refreshes the visual contents of every inventory slot using Global.inventory.
 # Empty slots are cleared, while occupied slots display their corresponding item texture and name.
@@ -101,11 +98,9 @@ func _refresh_inventory() -> void:
 			if slot_button.has_node("Label"):
 				slot_button.get_node("Label").text = ""
 
-
 # Runs when the inventory changes and redraws the inventory slots.
 func _on_inventory_changed() -> void:
 	_refresh_inventory()
-
 
 # Selects an item from the inventory and starts placement in the main game scene.
 # Both furniture and animals are handled by the same start_placement function in game.gd.
@@ -117,17 +112,12 @@ func _on_inventory_slot_pressed(slot_index: int) -> void:
 	var item_texture: Texture2D = item_textures.get(item_name)
 
 	if item_texture == null:
-		print("No texture found for: ", item_name)
 		return
 
 	var main_scene = get_tree().current_scene
 
 	if main_scene.has_method(Global.PLACEMENT_METHOD):
-		print("Selecting item: ", item_name)
 		main_scene.start_placement(item_name, item_texture)
-	else:
-		print("start_placement() not found in current scene.")
-
 
 # Sets up the inventory when the scene starts.
 func _ready() -> void:

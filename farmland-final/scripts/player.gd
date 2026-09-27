@@ -1,12 +1,10 @@
 extends CharacterBody2D
 
-var speed: float = 150.0
-var character_direction: Vector2
-
 @export var animation: AnimatedSprite2D
 
 var last_direction: Vector2 = Vector2.DOWN
-
+var speed: float = 150.0
+var character_direction: Vector2
 
 # Reads the player's directional input every physics frame and converts it into
 # movement using the configured speed. The player's last non-zero direction is
@@ -26,7 +24,6 @@ func _physics_process(delta):
 		last_direction = direction
 
 	update_animation(direction)
-
 
 # Selects the correct walking animation based on the direction of movement.
 # When the player is not moving, the stored last direction is used to select
